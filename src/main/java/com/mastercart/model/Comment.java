@@ -1,12 +1,15 @@
 package com.mastercart.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import java.util.Date;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Comment {
@@ -23,6 +26,8 @@ public class Comment {
     private String store;
     private String comment;
     private Date time;
+    @Min(1)
+    @Max(5)
     private int review;
 
     public Comment() {

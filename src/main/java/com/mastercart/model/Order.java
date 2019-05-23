@@ -2,11 +2,19 @@ package com.mastercart.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.Min;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mastercart.model.enums.OrderStatus;
 import com.mastercart.model.enums.OrderType;
-
-import javax.persistence.*;
 
 @Entity
 @Table(name = "order_table")
@@ -19,6 +27,7 @@ public class Order {
     private OrderStatus orderStatus;
     @Enumerated(value = EnumType.STRING)
     private OrderType orderType;
+    @Min(0)
     private double price;
     @ManyToOne
     @JsonBackReference

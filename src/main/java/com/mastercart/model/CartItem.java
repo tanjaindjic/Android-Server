@@ -1,9 +1,15 @@
 package com.mastercart.model;
 
 
-import com.mastercart.model.enums.StatusCartItem;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.Min;
 
-import javax.persistence.*;
+import com.mastercart.model.enums.StatusCartItem;
 
 
 @Entity
@@ -11,6 +17,7 @@ public class CartItem {
     @Id
     @GeneratedValue
     private Long id;
+    @Min(1)
     private int quantity;
     private double total;
     @Enumerated(value = EnumType.STRING)
