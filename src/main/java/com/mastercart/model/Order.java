@@ -9,6 +9,7 @@ import com.mastercart.model.enums.OrderType;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "order_table")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
