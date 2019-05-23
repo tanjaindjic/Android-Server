@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -20,7 +21,7 @@ public class ShopController {
     private ShopSevice shopSevice;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Shop> getAllShops(){
+    public Collection<Shop> getAllShops(){
         return shopSevice.getAllShops();
     }
 
