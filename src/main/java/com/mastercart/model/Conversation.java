@@ -1,5 +1,7 @@
 package com.mastercart.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -9,8 +11,10 @@ public class Conversation {
     @GeneratedValue
     private Long id;
     @ManyToOne
+    @JsonBackReference
     Shop reciever;
     @ManyToOne
+    @JsonBackReference
     User initiator;
     @OneToMany
     List<Message> messages;

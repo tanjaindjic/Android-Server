@@ -1,13 +1,12 @@
 package com.mastercart.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Product {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String imageResource; //mozda path u storage?
@@ -23,8 +22,10 @@ public class Product {
     private List<Comment> comments;
     @ManyToOne
     private Category category;
+    @OneToMany
+    private List<Order> orders;
 
-    public Product(String name, String imageResource, double price, String description, int onStock, String size, int discount, boolean active, double rating, int numberOfRatings, List<Comment> comments) {
+    public Product(String name, String imageResource, double price, String description, int onStock, String size, int discount, boolean active, double rating, int numberOfRatings, List<Comment> comments, Category category, List<Order> orders) {
         this.name = name;
         this.imageResource = imageResource;
         this.price = price;
@@ -36,6 +37,8 @@ public class Product {
         this.rating = rating;
         this.numberOfRatings = numberOfRatings;
         this.comments = comments;
+        this.category = category;
+        this.orders = orders;
     }
 
     public Product() {  }
@@ -128,5 +131,21 @@ public class Product {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

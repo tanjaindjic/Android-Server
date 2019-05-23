@@ -3,7 +3,6 @@ package com.mastercart.model;
 import com.mastercart.model.enums.Role;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,12 +24,14 @@ public class User {
     @OneToMany
     private List<CartItem> cartItems;
     @OneToMany
-    private List<Orders> orders;
+    private List<Order> orders;
+    @OneToMany
+    private List<Conversation> conversations;
 
     public User() {
     }
 
-    public User(String email, String firstName, String lastName, String address, String phone, Role role, String imageResource, List<Product> favorites, Wallet wallet, List<CartItem> cartItems, List<Orders> orders) {
+    public User(String email, String firstName, String lastName, String address, String phone, Role role, String imageResource, List<Product> favorites, Wallet wallet, List<CartItem> cartItems, List<Order> orders, List<Conversation>conversations) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -41,6 +42,8 @@ public class User {
         this.favorites = favorites;
         this.wallet = wallet;
         this.cartItems = cartItems;
+        this.orders = orders;
+        this.conversations = conversations;
     }
 
     public Long getId() {  return id;  }
@@ -129,11 +132,19 @@ public class User {
         this.cartItems = cartItems;
     }
 
-    public List<Orders> getOrders() {
+    public List<Order> getOrders() {
         return orders;
     }
 
-    public void setOrders(List<Orders> orders) {
+    public void setOrders(List<Order> orders) {
         this.orders = orders;
+    }
+
+    public List<Conversation> getConversations() {
+        return conversations;
+    }
+
+    public void setConversations(List<Conversation> conversations) {
+        this.conversations = conversations;
     }
 }

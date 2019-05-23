@@ -1,5 +1,7 @@
 package com.mastercart.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,8 +14,10 @@ public class Comment {
     @GeneratedValue
     private Long id;
     @ManyToOne
+    @JsonBackReference
     private Shop forShop; //id radnje ili proizvoda
     @ManyToOne
+    @JsonBackReference
     private Product forProduct; //id radnje ili proizvoda
     private String user;
     private String store;

@@ -1,5 +1,7 @@
 package com.mastercart.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -15,6 +17,7 @@ public class Message {
     private String message;
     private Date time;
     @ManyToOne
+    @JsonBackReference
     private Conversation conversation;
 
     public Message() {
