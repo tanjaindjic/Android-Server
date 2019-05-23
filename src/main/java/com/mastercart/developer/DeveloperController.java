@@ -1,4 +1,4 @@
-package com.subarata.springbootandrest.developer;
+package com.mastercart.developer;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.subarata.springbootandrest.model.Developer;
+import com.mastercart.model.Developer;
 
 @RestController
 public class DeveloperController {

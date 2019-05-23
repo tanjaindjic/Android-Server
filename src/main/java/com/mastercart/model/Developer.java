@@ -1,4 +1,4 @@
-package com.subarata.springbootandrest.model;
+package com.mastercart.model;
 
 public class Developer {
 

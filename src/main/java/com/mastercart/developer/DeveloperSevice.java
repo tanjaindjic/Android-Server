@@ -1,4 +1,4 @@
-package com.subarata.springbootandrest.developer;
+package com.mastercart.developer;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.subarata.springbootandrest.model.Developer;
+import com.mastercart.model.Developer;
 
 @Service
 public class DeveloperSevice {
