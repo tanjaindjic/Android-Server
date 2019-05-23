@@ -21,8 +21,9 @@ public class ShopController {
     private ShopSevice shopSevice;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Shop> getAllShops(){
-        return shopSevice.getAllShops();
+    public Shop[] getAllShops(){
+        List<Shop> shops = shopSevice.getAllShops();
+        return shops.toArray(new Shop[shops.size()]);
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)

@@ -16,7 +16,8 @@ public class Shop {
     private String name;
     private String imageResource;
     private String location;
-    private LatLng latlon; //za GoogleMaps
+    public double lat;
+    public double lng;
     private String phone;
     private String email;
     private boolean active;
@@ -32,11 +33,13 @@ public class Shop {
     public Shop() {
     }
 
-    public Shop(String name, String imageResource, String location, LatLng latlon, String phone, String email, boolean active, double rating, int numberOfRatings, List<Product> products, List<User> seller, List<Comment> comments) {
+    public Shop(String name, String imageResource, String location, double lat, double lng, String phone, String email, boolean active, double rating, int numberOfRatings, List<Product> products, List<User> seller, List<Comment> comments) {
+
         this.name = name;
         this.imageResource = imageResource;
         this.location = location;
-        this.latlon = latlon;
+        this.lat = lat;
+        this.lng = lng;
         this.phone = phone;
         this.email = email;
         this.active = active;
@@ -79,12 +82,20 @@ public class Shop {
         this.location = location;
     }
 
-    public LatLng getLatlon() {
-        return latlon;
+    public double getLat() {
+        return lat;
     }
 
-    public void setLatlon(LatLng latlon) {
-        this.latlon = latlon;
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public double getLng() {
+        return lng;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
     }
 
     public String getPhone() {

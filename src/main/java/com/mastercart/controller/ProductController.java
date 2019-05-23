@@ -22,8 +22,9 @@ public class ProductController {
     private ProductSevice productSevice;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Product> getAllProducts(){
-        return productSevice.getAllProducts();
+    public Product[] getAllProducts(){
+        List<Product> products = productSevice.getAllProducts();
+        return products.toArray(new Product[products.size()]);
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)

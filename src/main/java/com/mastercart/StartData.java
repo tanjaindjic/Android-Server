@@ -23,13 +23,13 @@ public class StartData {
 
     @PostConstruct
     public void init(){
-        Shop s1 = new Shop("Mega shop", "", "Test adresa", new LatLng(35.5, 215.5), "+3815565648", "test@mail.com", true, 3.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        Shop s1 = new Shop("Mega shop", "", "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 3.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         shopRepository.save(s1);
-        Shop s2 = new Shop("HalloStore", "", "Test adresa", new LatLng(35.5, 215.5), "+3815565648", "test@mail.com", true, 4.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        Shop s2 = new Shop("HalloStore", "", "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 4.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         shopRepository.save(s2);
-        Shop s3 = new Shop("Mobile Shop", "", "Test adresa", new LatLng(35.5, 215.5), "+3815565648", "test@mail.com", true, 2.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        Shop s3 = new Shop("Mobile Shop", "", "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 2.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         shopRepository.save(s3);
-        Shop s4 = new Shop("Cells", "", "Test adresa", new LatLng(35.5, 215.5), "+3815565648", "test@mail.com", true, 5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        Shop s4 = new Shop("Cells", "", "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         shopRepository.save(s4);
 
         Category c1 = new Category("Chargers");
