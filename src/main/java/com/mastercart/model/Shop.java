@@ -4,13 +4,15 @@ import com.google.maps.model.LatLng;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Shop {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     private String name;
     private String imageResource;
     private String location;
@@ -20,15 +22,17 @@ public class Shop {
     private boolean active;
     private double rating;
     private int numberOfRatings;
-    private ArrayList<Product> products;
-    private ArrayList<User> seller;
-    private ArrayList<Comment> comments;
+    @OneToMany
+    private List<Product> products;
+    @OneToMany
+    private List<User> seller;
+    @OneToMany
+    private List<Comment> comments;
 
     public Shop() {
     }
 
-    public Shop(int id, String name, String imageResource, String location, LatLng latlon, String phone, String email, boolean active, double rating, int numberOfRatings, ArrayList<Product> products, ArrayList<User> seller, ArrayList<Comment> comments) {
-        this.id = id;
+    public Shop(String name, String imageResource, String location, LatLng latlon, String phone, String email, boolean active, double rating, int numberOfRatings, List<Product> products, List<User> seller, List<Comment> comments) {
         this.name = name;
         this.imageResource = imageResource;
         this.location = location;
@@ -43,11 +47,11 @@ public class Shop {
         this.comments = comments;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -123,27 +127,27 @@ public class Shop {
         this.numberOfRatings = numberOfRatings;
     }
 
-    public ArrayList<Product> getProducts() {
+    public List<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(ArrayList<Product> products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
 
-    public ArrayList<User> getSeller() {
+    public List<User> getSeller() {
         return seller;
     }
 
-    public void setSeller(ArrayList<User> seller) {
+    public void setSeller(List<User> seller) {
         this.seller = seller;
     }
 
-    public ArrayList<Comment> getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(ArrayList<Comment> comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
 }

@@ -1,28 +1,30 @@
 package com.mastercart.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.UUID;
+import java.util.List;
 
 @Entity
 public class Wallet {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     private double balance;
-    private ArrayList<Payment> history;
+    @OneToMany
+    private List<Payment> history;
+    @OneToOne
+    private User user;
 
-    public Wallet(int id, double balance, ArrayList<Payment> history) {
-        this.id = id;
+    public Wallet( double balance, List<Payment> history, User user) {
+
         this.balance = balance;
         this.history = history;
+        this.user = user;
     }
 
     public Wallet() {  }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -34,11 +36,19 @@ public class Wallet {
         this.balance = balance;
     }
 
-    public ArrayList<Payment> getHistory() {
+    public List<Payment> getHistory() {
         return history;
     }
 
-    public void setHistory(ArrayList<Payment> history) {
+    public void setHistory(List<Payment> history) {
         this.history = history;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

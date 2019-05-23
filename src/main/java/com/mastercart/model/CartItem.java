@@ -3,19 +3,19 @@ package com.mastercart.model;
 
 import com.mastercart.model.enums.StatusCartItem;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
 public class CartItem {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     private int quantity;
     private double total;
+    @Enumerated(value = EnumType.STRING)
     private StatusCartItem statusCartItem;
+    @ManyToOne
     private Product item;
 
     public CartItem() {
@@ -29,11 +29,11 @@ public class CartItem {
         this.item = item;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {   this.id = id;   }
+    public void setId(Long id) {   this.id = id;   }
 
     public int getQuantity() {
         return quantity;

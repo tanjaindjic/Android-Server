@@ -2,16 +2,15 @@ package com.mastercart.model;
 
 import com.mastercart.model.enums.Role;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     private String email;
     private String firstName;
     private String lastName;
@@ -19,16 +18,19 @@ public class User {
     private String phone;
     private Role role;
     private String imageResource;
-    private ArrayList<Product> favorites;
+    @OneToMany
+    private List<Product> favorites;
+    @OneToOne
     private Wallet wallet;
-    private ArrayList<CartItem> cartItems;
-    private ArrayList<Orders> orders;
+    @OneToMany
+    private List<CartItem> cartItems;
+    @OneToMany
+    private List<Orders> orders;
 
     public User() {
     }
 
-    public User(int id, String email, String firstName, String lastName, String address, String phone, Role role, String imageResource, ArrayList<Product> favorites, Wallet wallet, ArrayList<CartItem> cartItems, ArrayList<Orders> orders) {
-        this.id = id;
+    public User(String email, String firstName, String lastName, String address, String phone, Role role, String imageResource, List<Product> favorites, Wallet wallet, List<CartItem> cartItems, List<Orders> orders) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -41,9 +43,9 @@ public class User {
         this.cartItems = cartItems;
     }
 
-    public int getId() {  return id;  }
+    public Long getId() {  return id;  }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -103,11 +105,11 @@ public class User {
         this.imageResource = imageResource;
     }
 
-    public ArrayList<Product> getFavorites() {
+    public List<Product> getFavorites() {
         return favorites;
     }
 
-    public void setFavorites(ArrayList<Product> favorites) {
+    public void setFavorites(List<Product> favorites) {
         this.favorites = favorites;
     }
 
@@ -119,19 +121,19 @@ public class User {
         this.wallet = wallet;
     }
 
-    public ArrayList<CartItem> getCartItems() {
+    public List<CartItem> getCartItems() {
         return cartItems;
     }
 
-    public void setCartItems(ArrayList<CartItem> cartItems) {
+    public void setCartItems(List<CartItem> cartItems) {
         this.cartItems = cartItems;
     }
 
-    public ArrayList<Orders> getOrders() {
+    public List<Orders> getOrders() {
         return orders;
     }
 
-    public void setOrders(ArrayList<Orders> orders) {
+    public void setOrders(List<Orders> orders) {
         this.orders = orders;
     }
 }

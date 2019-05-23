@@ -1,16 +1,14 @@
 package com.mastercart.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.UUID;
+import java.util.List;
 
 @Entity
 public class Product {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     private String name;
     private String imageResource; //mozda path u storage?
     private double price;
@@ -21,10 +19,12 @@ public class Product {
     private boolean active;
     private double rating;
     private int numberOfRatings;
-    private ArrayList<Comment> comments;
+    @OneToMany
+    private List<Comment> comments;
+    @ManyToOne
+    private Category category;
 
-    public Product(int id, String name, String imageResource, double price, String description, int onStock, String size, int discount, boolean active, double rating, int numberOfRatings, ArrayList<Comment> comments) {
-        this.id = id;
+    public Product(String name, String imageResource, double price, String description, int onStock, String size, int discount, boolean active, double rating, int numberOfRatings, List<Comment> comments) {
         this.name = name;
         this.imageResource = imageResource;
         this.price = price;
@@ -40,7 +40,7 @@ public class Product {
 
     public Product() {  }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -122,11 +122,11 @@ public class Product {
         this.numberOfRatings = numberOfRatings;
     }
 
-    public ArrayList<Comment> getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(ArrayList<Comment> comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
 }

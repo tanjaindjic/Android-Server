@@ -2,18 +2,19 @@ package com.mastercart.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 public class Comment {
     @Id
     @GeneratedValue
-    private int id;
-
-    private int itemId; //id radnje ili proizvoda
+    private Long id;
+    @ManyToOne
+    private Shop forShop; //id radnje ili proizvoda
+    @ManyToOne
+    private Product forProduct; //id radnje ili proizvoda
     private String user;
     private String store;
     private String comment;
@@ -23,9 +24,9 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(int id, int itemId, String user, String store, String comment, Date time, int review) {
-        this.id = id;
-        this.itemId = itemId;
+    public Comment(Shop forShop, Product forProduct, String user, String store, String comment, Date time, int review) {
+        this.forShop = forShop;
+        this.forProduct = forProduct;
         this.user = user;
         this.store = store;
         this.comment = comment;
@@ -33,20 +34,20 @@ public class Comment {
         this.review = review;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getItemId() {
-        return itemId;
+    public Object getForShop() {
+        return forShop;
     }
 
-    public void setItemId(int itemId) {
-        this.itemId = itemId;
+    public void setForShop(Shop forShop) {
+        this.forShop = forShop;
     }
 
     public String getUser() {
@@ -87,5 +88,13 @@ public class Comment {
 
     public void setReview(int review) {
         this.review = review;
+    }
+
+    public Product getForProduct() {
+        return forProduct;
+    }
+
+    public void setForProduct(Product forProduct) {
+        this.forProduct = forProduct;
     }
 }

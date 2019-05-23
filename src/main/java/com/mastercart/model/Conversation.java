@@ -1,30 +1,29 @@
 package com.mastercart.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 public class Conversation {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
+    @ManyToOne
     Shop reciever;
-    User sender;
+    @ManyToOne
+    User initiator;
+    @OneToMany
     List<Message> messages;
 
-    public Conversation(int id, Shop receiver, User sender, List<Message> messages) {
-        this.id = id;
+    public Conversation(int id, Shop receiver, User initiator, List<Message> messages) {
         this.reciever = receiver;
-        this.sender = sender;
+        this.initiator = initiator;
         this.messages = messages;
     }
 
     public Conversation() { }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -36,12 +35,12 @@ public class Conversation {
         this.reciever = reciever;
     }
 
-    public User getSender() {
-        return sender;
+    public User getInitiator() {
+        return initiator;
     }
 
-    public void setSender(User sender) {
-        this.sender = sender;
+    public void setInitiator(User initiator) {
+        this.initiator = initiator;
     }
 
     public List<Message> getMessages() {

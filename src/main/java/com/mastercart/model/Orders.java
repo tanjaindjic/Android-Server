@@ -3,36 +3,36 @@ package com.mastercart.model;
 import java.util.Date;
 import com.mastercart.model.enums.OrderStatus;
 import com.mastercart.model.enums.OrderType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @Entity
 public class Orders {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     private Date time;
+    @Enumerated(value = EnumType.STRING)
     private OrderStatus orderStatus;
+    @Enumerated(value = EnumType.STRING)
     private OrderType orderType;
     private double price;
 
     public Orders() {
     }
 
-    public Orders(int id, Date time, OrderStatus orderStatus, OrderType orderType, double price) {
-        this.id = id;
+    public Orders( Date time, OrderStatus orderStatus, OrderType orderType, double price) {
         this.time = time;
         this.orderStatus = orderStatus;
         this.orderType = orderType;
         this.price = price;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
