@@ -62,15 +62,15 @@ public class StartData {
         w_user2 = walletRepository.save(w_user2);
         
         
-        User admin = new User("admin@gmail.com", "Admin", "Admminic", "Nova bb", "060/1000-001", Role.ADMIN, "", null, w_admin, null, null, null);
+        User admin = new User("admin@gmail.com", "admin", "Admin", "Admminic", "Nova bb", "060/1000-001", Role.ADMIN, "", null, w_admin, null, null, null);
         admin = userRepository.save(admin); 
-        User seller1 = new User("seller1@gmail.com", "Sale", "Seler", "Mileticeva 10", "060/2002-002", Role.PRODAVAC, "", null, w_admin, null, null, null);
+        User seller1 = new User("seller1@gmail.com", "sale","Sale", "Seler", "Mileticeva 10", "060/2002-002", Role.PRODAVAC, "", null, w_admin, null, null, null);
         seller1 = userRepository.save(seller1); 
-        User seller2 = new User("seller2@gmail.com", "Proda", "Prodavac", "Puskinova 43", "060/1000-002", Role.PRODAVAC, "", null, w_admin, null, null, null);
+        User seller2 = new User("seller2@gmail.com", "proda", "Proda", "Prodavac", "Puskinova 43", "060/1000-002", Role.PRODAVAC, "", null, w_admin, null, null, null);
         seller2 = userRepository.save(seller2); 
-        User user1 = new User("pera@gmail.com", "Pera", "Peric", "Dunavska 13", "060/1000-004", Role.KUPAC, "", null, w_user1, null, null, null);
+        User user1 = new User("pera@gmail.com", "pera", "Pera", "Peric", "Dunavska 13", "060/1000-004", Role.KUPAC, "", null, w_user1, null, null, null);
         user1 = userRepository.save(user1); 
-        User user2 = new User("mika@gmail.com", "Mika", "Mikic", "Radnicka 15", "060/1000-005", Role.KUPAC, "", null, w_user2, null, null, null);
+        User user2 = new User("mika@gmail.com", "mika", "Mika", "Mikic", "Radnicka 15", "060/1000-005", Role.KUPAC, "", null, w_user2, null, null, null);
         user2 = userRepository.save(user2); 
         
     }
