@@ -18,7 +18,7 @@ public class Product {
     private boolean active;
     private double rating;
     private int numberOfRatings;
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST})
     private List<Comment> comments;
     @ManyToOne
     private Category category;
@@ -42,6 +42,26 @@ public class Product {
     }
 
     public Product() {  }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", imageResource='" + imageResource + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", onStock=" + onStock +
+                ", size='" + size + '\'' +
+                ", discount=" + discount +
+                ", active=" + active +
+                ", rating=" + rating +
+                ", numberOfRatings=" + numberOfRatings +
+                ", comments=" + comments +
+                ", category=" + category +
+                ", orders=" + orders +
+                '}';
+    }
 
     public Long getId() {
         return id;
