@@ -2,9 +2,13 @@ package com.mastercart;
 
 import com.google.maps.model.LatLng;
 import com.mastercart.model.*;
+import com.mastercart.model.enums.Role;
 import com.mastercart.repository.CategoryRepository;
 import com.mastercart.repository.ProductRepository;
 import com.mastercart.repository.ShopRepository;
+import com.mastercart.repository.UserRepository;
+import com.mastercart.repository.WalletRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +24,12 @@ public class StartData {
     private CategoryRepository categoryRepository;
     @Autowired
     private ProductRepository productRepository;
+    
+    @Autowired
+    private UserRepository userRepository;
+    
+    @Autowired
+    private WalletRepository walletRepository;
 
     @PostConstruct
     public void init(){
@@ -43,6 +53,26 @@ public class StartData {
         productRepository.save(p3);
         Product p4 = new Product("Phone Mask", "", 130.0, "Protect your mobile device!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c1, new ArrayList<>());
         productRepository.save(p4);
+        
+        Wallet w_admin = new Wallet(0, null, null);
+        w_admin = walletRepository.save(w_admin);
+        Wallet w_user1 = new Wallet(0, null, null);
+        w_user1 = walletRepository.save(w_user1);
+        Wallet w_user2 = new Wallet(0, null, null);
+        w_user2 = walletRepository.save(w_user2);
+        
+        
+        User admin = new User("admin@gmail.com", "Admin", "Admminic", "Nova bb", "060/1000-001", Role.ADMIN, "", null, w_admin, null, null, null);
+        admin = userRepository.save(admin); 
+        User seller1 = new User("seller1@gmail.com", "Sale", "Seler", "Mileticeva 10", "060/2002-002", Role.PRODAVAC, "", null, w_admin, null, null, null);
+        seller1 = userRepository.save(seller1); 
+        User seller2 = new User("seller2@gmail.com", "Proda", "Prodavac", "Puskinova 43", "060/1000-002", Role.PRODAVAC, "", null, w_admin, null, null, null);
+        seller2 = userRepository.save(seller2); 
+        User user1 = new User("pera@gmail.com", "Pera", "Peric", "Dunavska 13", "060/1000-004", Role.KUPAC, "", null, w_user1, null, null, null);
+        user1 = userRepository.save(user1); 
+        User user2 = new User("mika@gmail.com", "Mika", "Mikic", "Radnicka 15", "060/1000-005", Role.KUPAC, "", null, w_user2, null, null, null);
+        user2 = userRepository.save(user2); 
+        
     }
 
 
