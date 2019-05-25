@@ -1,43 +1,33 @@
 package com.mastercart.model;
 
-import java.util.Date;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Comment {
     @Id
     @GeneratedValue
     private Long id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonBackReference
     private Shop forShop; //id radnje ili proizvoda
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonBackReference
     private Product forProduct; //id radnje ili proizvoda
     private String user;
-    private String store;
     private String comment;
     private Date time;
-    @Min(1)
-    @Max(5)
-    private int review;
+    private double review;
 
     public Comment() {
     }
 
-    public Comment(Shop forShop, Product forProduct, String user, String store, String comment, Date time, int review) {
+    public Comment(Shop forShop, Product forProduct, String user, String comment, Date time, double review) {
         this.forShop = forShop;
         this.forProduct = forProduct;
         this.user = user;
-        this.store = store;
         this.comment = comment;
         this.time = time;
         this.review = review;
@@ -67,14 +57,6 @@ public class Comment {
         this.user = user;
     }
 
-    public String getStore() {
-        return store;
-    }
-
-    public void setStore(String store) {
-        this.store = store;
-    }
-
     public String getComment() {
         return comment;
     }
@@ -91,11 +73,11 @@ public class Comment {
         this.time = time;
     }
 
-    public int getReview() {
+    public double getReview() {
         return review;
     }
 
-    public void setReview(int review) {
+    public void setReview(double review) {
         this.review = review;
     }
 

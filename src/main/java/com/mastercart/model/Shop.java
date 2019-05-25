@@ -1,10 +1,9 @@
 package com.mastercart.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.google.maps.model.LatLng;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,10 +23,11 @@ public class Shop {
     private double rating;
     private int numberOfRatings;
     @OneToMany
+    @JsonBackReference
     private List<Product> products;
     @OneToMany
     private List<User> seller;
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST})
     private List<Comment> comments;
 
     public Shop() {
@@ -48,6 +48,26 @@ public class Shop {
         this.products = products;
         this.seller = seller;
         this.comments = comments;
+    }
+
+    @Override
+    public String toString() {
+        return "Shop{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", imageResource='" + imageResource + '\'' +
+                ", location='" + location + '\'' +
+                ", lat=" + lat +
+                ", lng=" + lng +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", active=" + active +
+                ", rating=" + rating +
+                ", numberOfRatings=" + numberOfRatings +
+                ", products=" + products +
+                ", seller=" + seller +
+                ", comments=" + comments +
+                '}';
     }
 
     public Long getId() {
