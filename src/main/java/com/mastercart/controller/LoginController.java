@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,5 +44,18 @@ public class LoginController {
 	    System.out.println("resen zahtev za login");
 	    forLogin.setPassword(token);
 	  	return new ResponseEntity<UserDTO>(forLogin, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "loggedUser", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<User> loggedUser(@RequestHeader(value="Authorization") String Authorization){
+	    String email = tokenUtils.getUsernameFromToken(Authorization);
+	    if(email==null || email.isEmpty()) {
+	    	return new ResponseEntity<>(null, HttpStatus.OK);
+	    }
+	    User user = userService.getUserByEmail(email);
+	    if(user==null) {
+	    	return new ResponseEntity<>(null, HttpStatus.OK);	    	
+	    }
+	  	return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 }
