@@ -31,17 +31,14 @@ public class LoginController {
 	    User user = userService.getUserByEmail(forLogin.getEmail());
 	    
 	    if(user == null) {
-		    System.out.println("LOGIN: user je null");
-	    	return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+	    	return new ResponseEntity<>(null, HttpStatus.OK);
 	    }
 	    
 	    if(!user.getPassword().equals(forLogin.getPassword())) {
-		    System.out.println("LOGIN: los pasvord");	    	
-		    return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		    return new ResponseEntity<>(null, HttpStatus.OK);
 	    }
 	    
 	    String token = tokenUtils.generateToken(CustomUserDetailsFactory.createCustomUserDetails(user));
-	    System.out.println("resen zahtev za login");
 	    forLogin.setPassword(token);
 	  	return new ResponseEntity<UserDTO>(forLogin, HttpStatus.OK);
 	}

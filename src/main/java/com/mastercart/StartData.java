@@ -1,17 +1,28 @@
 package com.mastercart;
 
-import com.google.maps.model.LatLng;
-import com.mastercart.model.*;
-import com.mastercart.repository.CategoryRepository;
-import com.mastercart.repository.ProductRepository;
-import com.mastercart.repository.ShopRepository;
-import com.mastercart.service.CommentService;
+import java.util.ArrayList;
+import java.util.Date;
+
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.Date;
+import com.mastercart.model.CartItem;
+import com.mastercart.model.Category;
+import com.mastercart.model.Comment;
+import com.mastercart.model.Conversation;
+import com.mastercart.model.Order;
+import com.mastercart.model.Product;
+import com.mastercart.model.Shop;
+import com.mastercart.model.User;
+import com.mastercart.model.enums.Role;
+import com.mastercart.repository.CategoryRepository;
+import com.mastercart.repository.ProductRepository;
+import com.mastercart.repository.ShopRepository;
+import com.mastercart.repository.UserRepository;
+import com.mastercart.repository.WalletRepository;
+import com.mastercart.service.CommentService;
 
 @Component
 public class StartData {
@@ -24,6 +35,10 @@ public class StartData {
     private ProductRepository productRepository;
     @Autowired
     private CommentService commentService;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private WalletRepository walletRepository;
 
     @PostConstruct
     public void init(){
@@ -63,8 +78,17 @@ public class StartData {
         p1.getComments().add(com5);
         p1.getComments().add(com6);
         productRepository.save(p1);
-
-
+        
+        User admin = new User("admin@gmail.com", "admin", "Admin", "Adminic", "Kosovska 53", "060/123-123", Role.ADMIN, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        admin = userRepository.save(admin);
+        User seller1 = new User("seller1@gmail.com", "seller1", "Sale", "Seller", "Puskinova 13", "061/234-234", Role.PRODAVAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        seller1 = userRepository.save(seller1);
+        User seller2 = new User("seller2@gmail.com", "seller2", "Proda", "Prodavac", "Strazilovska 13", "062/345-345", Role.PRODAVAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        seller2 = userRepository.save(seller2);
+        User buyer1 = new User("mika@gmail.com", "mika", "Mika", "Mikic", "Mike Antica 26", "063/343-443", Role.KUPAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        buyer1 = userRepository.save(buyer1);
+        User buyer2 = new User("pera@gmail.com", "pera", "Pera", "Peric", "Sonje Marinkovic  11", "064/767-696", Role.KUPAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        buyer2 = userRepository.save(buyer2);
     }
 
 
