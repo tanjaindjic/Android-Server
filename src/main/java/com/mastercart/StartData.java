@@ -52,7 +52,11 @@ public class StartData {
         shopRepository.save(s4);
 
         Category c1 = new Category("Chargers");
-        categoryRepository.save(c1);
+        c1 = categoryRepository.save(c1);
+        Category c2 = new Category("Earphones");
+        c2 = categoryRepository.save(c2);
+        Category c3 = new Category("Phone cases");
+        c3 = categoryRepository.save(c3);
 
         Product p1 = new Product("Android Charger", "", 100.0, "Super quality mobile charger!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c1, new ArrayList<>());
         productRepository.save(p1);
