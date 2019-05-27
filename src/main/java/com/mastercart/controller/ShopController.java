@@ -41,6 +41,12 @@ public class ShopController {
        	return new ResponseEntity<ShopDTO>(shop, HttpStatus.OK);
        	
        }
+    
+    @RequestMapping(value = "/edit", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+   	public ResponseEntity<ShopDTO> edit(@RequestBody ShopDTO shop){
+        shopSevice.editShop(shop);
+   		return new ResponseEntity<ShopDTO>(shop, HttpStatus.OK);
+       }
 
 
 }

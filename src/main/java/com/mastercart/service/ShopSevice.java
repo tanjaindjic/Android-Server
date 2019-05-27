@@ -34,4 +34,23 @@ public class ShopSevice {
 		newShop.setImageResource(shop.getImageResource());
 		return shopRepository.save(newShop);
 	}
+    
+    public Shop editShop(ShopDTO shop) {
+    	Shop editShop = shopRepository.findById(Long.parseLong(shop.getId())).get();
+    	if(shop.getName()!="")
+    	   editShop.setName(shop.getName());
+    	if(shop.getEmail()!="")
+        	editShop.setEmail(shop.getEmail());
+    	if(shop.getLocation()!="")
+    		editShop.setLocation(shop.getLocation());
+    	if(shop.getLat()!="")	
+	    	editShop.setLat(Double.parseDouble(shop.getLat()));
+    	if(shop.getLng()!="")
+        	editShop.setLng(Double.parseDouble(shop.getLng()));
+    	if(shop.getPhone()!="")
+    		editShop.setPhone(shop.getPhone());
+    	if(shop.getImageResource()!="")
+        	editShop.setImageResource(shop.getImageResource());
+	    return shopRepository.save(editShop);
+	}
 }

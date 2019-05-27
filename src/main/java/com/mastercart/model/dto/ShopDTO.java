@@ -1,6 +1,7 @@
 package com.mastercart.model.dto;
 
 public class ShopDTO {
+	private String id;
 	private String name;
     private String imageResource;
     private String location;
@@ -11,9 +12,10 @@ public class ShopDTO {
     
     public ShopDTO() {}
     
-	public ShopDTO(String name, String imageResource, String location, String lat, String lng, String phone,
+	public ShopDTO(String id,String name, String imageResource, String location, String lat, String lng, String phone,
 			String email) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.imageResource = imageResource;
 		this.location = location;
@@ -21,6 +23,14 @@ public class ShopDTO {
 		this.lng = lng;
 		this.phone = phone;
 		this.email = email;
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getName() {
