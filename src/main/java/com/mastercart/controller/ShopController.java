@@ -3,7 +3,9 @@ package com.mastercart.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,8 +36,9 @@ public class ShopController {
     }
     
     @RequestMapping(value = "/add", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-   	public Shop add(@RequestBody ShopDTO shop){
-       	return shopSevice.addShop(shop);
+   	public ResponseEntity<ShopDTO> add(@RequestBody ShopDTO shop){
+       	shopSevice.addShop(shop);
+       	return new ResponseEntity<ShopDTO>(shop, HttpStatus.OK);
        	
        }
 
