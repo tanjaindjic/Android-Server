@@ -1,15 +1,22 @@
 package com.mastercart.model;
 
-import com.mastercart.model.enums.Role;
-
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import com.mastercart.model.enums.Role;
 
 @Entity
 public class User {
     @Id
     @GeneratedValue
     private Long id;
+    @Column(unique = true)
     private String email;
     private String password;
     private String firstName;
@@ -32,8 +39,9 @@ public class User {
     public User() {
     }
 
-    public User(String email, String password, String firstName, String lastName, String address, String phone, Role role, String imageResource, List<Product> favorites, Wallet wallet, List<CartItem> cartItems, List<Order> orders, List<Conversation>conversations) {
-        this.email = email;
+    public User(Long id, String email, String password, String firstName, String lastName, String address, String phone, Role role, String imageResource, List<Product> favorites, Wallet wallet, List<CartItem> cartItems, List<Order> orders, List<Conversation>conversations) {
+        this.id = id;
+    	this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
