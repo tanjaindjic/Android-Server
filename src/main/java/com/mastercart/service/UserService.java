@@ -11,6 +11,7 @@ import com.mastercart.model.Order;
 import com.mastercart.model.Product;
 import com.mastercart.model.User;
 import com.mastercart.model.dto.AddUserDTO;
+import com.mastercart.model.dto.EditUserDTO;
 import com.mastercart.model.enums.Role;
 import com.mastercart.repository.UserRepository;
 
@@ -26,6 +27,15 @@ public class UserService {
 
 	public User addUser(AddUserDTO userDTO) {
 		User user = new User((long) 1, userDTO.getEmail(), userDTO.getPassword(), userDTO.getFirstName(), userDTO.getLastName(), "", "", Role.KUPAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+		return userRepository.save(user);
+	}
+
+	public User updateUser(EditUserDTO userDTO, User user) {
+		user.setAddress(userDTO.getAddress());
+		user.setPassword(userDTO.getPassword());
+		user.setPhone(userDTO.getPhone());
+		user.setFirstName(userDTO.getFirstName());
+		user.setLastName(userDTO.getLastName());
 		return userRepository.save(user);
 	}
 
