@@ -2,9 +2,13 @@ package com.mastercart;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import com.mastercart.model.enums.OrderStatus;
+import com.mastercart.model.enums.OrderType;
+import com.mastercart.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,11 +21,6 @@ import com.mastercart.model.Product;
 import com.mastercart.model.Shop;
 import com.mastercart.model.User;
 import com.mastercart.model.enums.Role;
-import com.mastercart.repository.CategoryRepository;
-import com.mastercart.repository.ProductRepository;
-import com.mastercart.repository.ShopRepository;
-import com.mastercart.repository.UserRepository;
-import com.mastercart.repository.WalletRepository;
 import com.mastercart.service.CommentService;
 
 @Component
@@ -39,6 +38,8 @@ public class StartData {
     private UserRepository userRepository;
     @Autowired
     private WalletRepository walletRepository;
+    @Autowired
+    private OrderRepository orderRepository;
 
     @PostConstruct
     public void init(){
@@ -93,6 +94,16 @@ public class StartData {
         buyer1 = userRepository.save(buyer1);
         User buyer2 = new User((long)1, "pera@gmail.com", "pera", "Pera", "Peric", "Sonje Marinkovic  11", "064/767-696", Role.KUPAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         buyer2 = userRepository.save(buyer2);
+
+        List orders = new ArrayList<>();
+        Order o1 = new Order(new Date(System.currentTimeMillis()), OrderStatus.DELIVERED, OrderType.DELIVERY, 100.00, p1, 1, buyer1);
+        orderRepository.save(o1);
+        orders.add(o1);
+        Order o2 = new Order(new Date(System.currentTimeMillis()), OrderStatus.DELIVERED, OrderType.DELIVERY, 50.00, p3, 1, buyer1);
+        orderRepository.save(o2);
+        orders.add(o2);
+        buyer1.setOrders(orders);
+        userRepository.save(buyer1);
     }
 
 
