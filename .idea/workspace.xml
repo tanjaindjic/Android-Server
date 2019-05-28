@@ -1,35 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf0fc773-631e-4198-9c81-5c762a62cfd6" name="Default" comment="Merge branch 'master' of https://github.com/tanjaindjic/Android-Server&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/com/mastercart/StartData.java&#10;#&#9;src/main/java/com/mastercart/model/Comment.java&#10;#&#9;target/classes/com/mastercart/SpringBootApp.class">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/repository/OrderRepository.java" />
+    <list default="true" id="bf0fc773-631e-4198-9c81-5c762a62cfd6" name="Default" comment="orders dodati">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercart/model/Order.java" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/model/Order.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercart/model/Product.java" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/model/Product.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/SpringBootApp.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/SpringBootApp.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/StartData.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/StartData.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/controller/CategoryController.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/controller/CategoryController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/controller/ProductController.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/controller/ProductController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/controller/ShopController.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/controller/ShopController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/model/CartItem.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/model/CartItem.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/model/Category.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/model/Category.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/model/Conversation.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/model/Conversation.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/model/Message.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/model/Message.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/model/Order.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/model/Order.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/model/Payment.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/model/Payment.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/model/User.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/model/User.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/model/Wallet.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/model/Wallet.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/model/enums/OrderStatus.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/model/enums/OrderStatus.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/model/enums/OrderType.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/model/enums/OrderType.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/model/enums/Role.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/model/enums/Role.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/model/enums/StatusCartItem.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/model/enums/StatusCartItem.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/repository/CategoryRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/repository/CategoryRepository.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/repository/ProductRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/repository/ProductRepository.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/repository/ShopRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/repository/ShopRepository.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/service/CategorySevice.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/service/CategorySevice.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/service/ProductSevice.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/service/ProductSevice.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/service/ShopSevice.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/service/ShopSevice.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/model/Product.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/model/Product.class" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,75 +17,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-72">
-              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Order.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/model/Order.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="31" column="14" lean-forward="true" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/repository/OrderRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="66" lean-forward="false" selection-start-line="5" selection-start-column="66" selection-end-line="5" selection-end-column="66" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Product.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Product.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/model/Product.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
+            <state relative-caret-position="126">
               <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="83" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/ProductController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="25" column="64" lean-forward="false" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StartData.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StartData.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="103" column="21" lean-forward="false" selection-start-line="103" selection-start-column="21" selection-end-line="103" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state relative-caret-position="321">
+              <caret line="87" column="33" lean-forward="false" selection-start-line="87" selection-start-column="33" selection-end-line="87" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -162,9 +84,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/repository/OrderRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/model/Product.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/model/Order.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java" />
       </list>
     </option>
   </component>
@@ -342,10 +264,13 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/mastercart/service/UserService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/application.properties</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/mastercart/controller/ProductController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/mastercart/service/ProductSevice.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/mastercart/service/ShopSevice.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/META-INF/maven/com.subarata.springbootandrest/spring-boot-rest/pom.properties</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/application.properties</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/mastercart/controller/ProductController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/mastercart/service/ProductSevice.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/mastercart/service/ShopSevice.class</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -353,8 +278,10 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/mastercart/controller/UploadController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/mastercart/service/UploadSevice.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/mastercart/controller/CommentController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/mastercart/model/dto/CommentDTO.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/mastercart/model/dto/ProductDTO.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/mastercart/service/CommentSevice.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -660,7 +587,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558732171803</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="orders dodati">
+      <created>1559059261979</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1559059261979</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -676,7 +610,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42718446" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -710,7 +644,8 @@
     <MESSAGE value="dopunjen start data" />
     <MESSAGE value="izem ti target fajlove" />
     <MESSAGE value="Merge branch 'master' of https://github.com/tanjaindjic/Android-Server&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/com/mastercart/StartData.java&#10;#&#9;src/main/java/com/mastercart/model/Comment.java&#10;#&#9;target/classes/com/mastercart/SpringBootApp.class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/tanjaindjic/Android-Server&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/com/mastercart/StartData.java&#10;#&#9;src/main/java/com/mastercart/model/Comment.java&#10;#&#9;target/classes/com/mastercart/SpringBootApp.class" />
+    <MESSAGE value="orders dodati" />
+    <option name="LAST_COMMIT_MESSAGE" value="orders dodati" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1306,9 +1241,17 @@
         <state relative-caret-position="447">
           <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
-            <element signature="e#673#674#0" expanded="true" />
-            <element signature="e#720#721#0" expanded="true" />
+            <element signature="e#838#839#0" expanded="false" />
+            <element signature="e#885#886#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1317,24 +1260,8 @@
         <state relative-caret-position="90">
           <caret line="5" column="66" lean-forward="false" selection-start-line="5" selection-start-column="66" selection-end-line="5" selection-end-column="66" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="103" column="21" lean-forward="false" selection-start-line="103" selection-start-column="21" selection-end-line="103" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1343,15 +1270,23 @@
         <state relative-caret-position="185">
           <caret line="31" column="14" lean-forward="true" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/model/Product.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
+        <state relative-caret-position="126">
           <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="87" column="33" lean-forward="false" selection-start-line="87" selection-start-column="33" selection-end-line="87" selection-end-column="33" />
           <folding />
         </state>
       </provider>
