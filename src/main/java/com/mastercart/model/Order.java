@@ -30,7 +30,6 @@ public class Order {
     @Min(0)
     private double price;
     @ManyToOne
-    @JsonBackReference
     private Product product;
     private int quantity;
     @ManyToOne

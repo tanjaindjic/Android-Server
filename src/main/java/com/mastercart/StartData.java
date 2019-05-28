@@ -2,9 +2,13 @@ package com.mastercart;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import com.mastercart.model.enums.OrderStatus;
+import com.mastercart.model.enums.OrderType;
+import com.mastercart.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,11 +21,6 @@ import com.mastercart.model.Product;
 import com.mastercart.model.Shop;
 import com.mastercart.model.User;
 import com.mastercart.model.enums.Role;
-import com.mastercart.repository.CategoryRepository;
-import com.mastercart.repository.ProductRepository;
-import com.mastercart.repository.ShopRepository;
-import com.mastercart.repository.UserRepository;
-import com.mastercart.repository.WalletRepository;
 import com.mastercart.service.CommentService;
 
 @Component
@@ -39,6 +38,8 @@ public class StartData {
     private UserRepository userRepository;
     @Autowired
     private WalletRepository walletRepository;
+    @Autowired
+    private OrderRepository orderRepository;
 
     @PostConstruct
     public void init(){
@@ -51,20 +52,20 @@ public class StartData {
         Shop s4 = new Shop("Cells", "", "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         shopRepository.save(s4);
 
-        Category c1 = new Category("Chargers");
-        c1 = categoryRepository.save(c1);
-        Category c2 = new Category("Earphones");
-        c2 = categoryRepository.save(c2);
-        Category c3 = new Category("Phone cases");
-        c3 = categoryRepository.save(c3);
+        Category c0 = categoryRepository.save(new Category("All"));
+        Category c1 = categoryRepository.save(new Category("Chargers"));
+        Category c2 = categoryRepository.save(new Category("Earphones"));
+        Category c3 = categoryRepository.save(new Category("Phone cases"));
+        Category c4 = categoryRepository.save(new Category("Speakers"));
+        Category c5 = categoryRepository.save(new Category("Protection"));
 
         Product p1 = new Product("Android Charger", "", 100.0, "Super quality mobile charger!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c1, new ArrayList<>());
         productRepository.save(p1);
-        Product p2 = new Product("JBL Speakers", "", 450.0, "Amazing JBL speakers!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c1, new ArrayList<>());
+        Product p2 = new Product("JBL Speakers", "", 450.0, "Amazing JBL speakers!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c4, new ArrayList<>());
         productRepository.save(p2);
-        Product p3 = new Product("Screen Protection", "", 10.0, "Protect your screen now!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c1, new ArrayList<>());
+        Product p3 = new Product("Screen Protection", "", 10.0, "Protect your screen now!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
         productRepository.save(p3);
-        Product p4 = new Product("Phone Mask", "", 130.0, "Protect your mobile device!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c1, new ArrayList<>());
+        Product p4 = new Product("Phone Mask", "", 130.0, "Protect your mobile device!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
         productRepository.save(p4);
 
         Comment com1 = commentService.saveComment(new Comment(s1, null, "John Doe", "Very good shop!", new Date(System.currentTimeMillis()), 4.5));
@@ -73,6 +74,7 @@ public class StartData {
         Comment com4 = commentService.saveComment(new Comment(null, p1, "John Doe", "Very good product!", new Date(System.currentTimeMillis()), 4.5));
         Comment com5 = commentService.saveComment(new Comment(null, p1, "Anne Doe", "Super!", new Date(System.currentTimeMillis()), 4.5));
         Comment com6 = commentService.saveComment(new Comment(null, p1, "Mary Doe", "Not so good", new Date(System.currentTimeMillis()), 1.5));
+        Comment com7 = commentService.saveComment(new Comment(null, p2, "Mary Doe", "Best sound ever!", new Date(System.currentTimeMillis()), 5.0));
 
         s1.getComments().add(com1);
         s1.getComments().add(com2);
@@ -82,7 +84,9 @@ public class StartData {
         p1.getComments().add(com5);
         p1.getComments().add(com6);
         productRepository.save(p1);
-        
+        p2.getComments().add(com7);
+        productRepository.save(p2);
+
         User admin = new User((long)1, "admin@gmail.com", "admin", "Admin", "Adminic", "Kosovska 53", "060/123-123", Role.ADMIN, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         admin = userRepository.save(admin);
         User seller1 = new User((long)1, "seller1@gmail.com", "seller1", "Sale", "Seller", "Puskinova 13", "061/234-234", Role.PRODAVAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
@@ -96,6 +100,16 @@ public class StartData {
         buyer1 = userRepository.save(buyer1);
         User buyer2 = new User((long)1, "pera@gmail.com", "pera", "Pera", "Peric", "Sonje Marinkovic  11", "064/767-696", Role.KUPAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         buyer2 = userRepository.save(buyer2);
+
+        List orders = new ArrayList<>();
+        Order o1 = new Order(new Date(System.currentTimeMillis()), OrderStatus.DELIVERED, OrderType.DELIVERY, 100.0, p1, 1, buyer1);
+        orderRepository.save(o1);
+        orders.add(o1);
+        Order o2 = new Order(new Date(System.currentTimeMillis()), OrderStatus.DELIVERED, OrderType.DELIVERY, 50.0, p3, 1, buyer1);
+        orderRepository.save(o2);
+        orders.add(o2);
+        buyer1.setOrders(orders);
+        userRepository.save(buyer1);
     }
 
 
