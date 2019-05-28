@@ -50,6 +50,11 @@ public class ProductController {
     	return new ResponseEntity<ProductDTO>(product, HttpStatus.OK);
        }
     
+    @RequestMapping(value = "/edit", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+   	public ResponseEntity<ProductDTO> edit(@RequestBody ProductDTO product){
+    	productSevice.editProduct(product);
+   		return new ResponseEntity<ProductDTO>(product, HttpStatus.OK);
+       }
 
 
 }

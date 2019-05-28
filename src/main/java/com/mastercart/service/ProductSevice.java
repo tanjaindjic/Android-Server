@@ -36,7 +36,22 @@ public class ProductSevice {
     	return newProduct;
     }
 
-  
+    public Product editProduct(ProductDTO product) {
+    	Product newProduct = productRepository.findById(Long.parseLong(product.getId())).get();
+    	if(product.getName()!="")
+    		newProduct.setName(product.getName());
+    	if(product.getDescription()!="")
+    		newProduct.setDescription(product.getDescription());
+    	if(product.getDiscount()!="")
+    		newProduct.setDiscount(Integer.parseInt(product.getDiscount()));
+    	if(product.getPrice()!="")
+    		newProduct.setPrice(Double.parseDouble(product.getPrice()));
+    	if(product.getSize()!="")
+    		newProduct.setSize(product.getSize());
+    //	newProduct.setOnStock(Integer.getInteger(product.getOnStock()));
+    	productRepository.save(newProduct);
+    	return newProduct;
+    }
 
 
 }
