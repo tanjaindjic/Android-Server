@@ -23,6 +23,10 @@ public class ShopSevice {
         return shopRepository.findById(id).get();
     }
     
+    public Shop save(Shop s) {
+        return shopRepository.save(s);
+    }
+    
     public Shop addShop(ShopDTO shop) {
 		Shop newShop = new Shop();
 		newShop.setName(shop.getName());
