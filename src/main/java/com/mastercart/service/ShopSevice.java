@@ -53,4 +53,8 @@ public class ShopSevice {
         	editShop.setImageResource(shop.getImageResource());
 	    return shopRepository.save(editShop);
 	}
+
+	public void updateShop(Shop shop) {
+		shopRepository.save(shop);		
+	}
 }

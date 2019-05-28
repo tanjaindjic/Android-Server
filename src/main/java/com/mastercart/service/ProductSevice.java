@@ -22,5 +22,9 @@ public class ProductSevice {
         return productRepository.findById(id).get();
     }
 
+	public void update(Product product) {
+		productRepository.save(product);
+	}
+
 
 }
