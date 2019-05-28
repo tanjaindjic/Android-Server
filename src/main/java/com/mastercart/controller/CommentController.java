@@ -14,7 +14,7 @@ import com.mastercart.model.Comment;
 import com.mastercart.model.User;
 import com.mastercart.model.dto.CommentDTO;
 import com.mastercart.security.TokenUtils;
-import com.mastercart.service.CommentSevice;
+import com.mastercart.service.CommentService;
 import com.mastercart.service.UserService;
 
 @RestController
@@ -24,23 +24,23 @@ public class CommentController {
 	@Autowired
 	private UserService userService;
 	@Autowired
-	private CommentSevice commentService;
+	private CommentService commentService;
 	
 	@RequestMapping(value = "comment", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Boolean> addComment(@RequestHeader(value="Authorization") String Authorization, @RequestBody CommentDTO commentDTO){
+    public ResponseEntity<Comment> addComment(@RequestHeader(value="Authorization") String Authorization, @RequestBody CommentDTO commentDTO){
 		String email = tokenUtils.getUsernameFromToken(Authorization);
 	    if(email==null || email.isEmpty()) {    	
-	    	return new ResponseEntity<>(false, HttpStatus.OK);
+	    	return new ResponseEntity<>(null, HttpStatus.OK);
 	    }		
 		User user = userService.getUserByEmail(email);
-    	if(user!=null) {
-        	return new ResponseEntity<>(false, HttpStatus.OK);    		
+    	if(user==null) {
+        	return new ResponseEntity<>(null, HttpStatus.OK);    		
     	}
     	Comment response = commentService.addComment(commentDTO, user);
     	if(response==null)
-	    	return new ResponseEntity<>(false, HttpStatus.OK);
+	    	return new ResponseEntity<>(null, HttpStatus.OK);
     	System.out.println("uneo komentar");
-    	return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+    	return new ResponseEntity<Comment>(response, HttpStatus.OK);
     }
 	
 
