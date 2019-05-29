@@ -1,5 +1,7 @@
 package com.mastercart.controller;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +44,7 @@ public class ShopController {
     }
     
     @RequestMapping(value = "/add", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-   	public ResponseEntity<ShopDTO> add(@RequestBody ShopDTO shop){
+   	public ResponseEntity<ShopDTO> add(@RequestBody ShopDTO shop) throws IOException, URISyntaxException{
     	Shop s = shopSevice.addShop(shop);
        	User us = new User();
        	us.setEmail(shop.getSellerEmail());
@@ -56,7 +58,7 @@ public class ShopController {
        }
     
     @RequestMapping(value = "/edit", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-   	public ResponseEntity<ShopDTO> edit(@RequestBody ShopDTO shop){
+   	public ResponseEntity<ShopDTO> edit(@RequestBody ShopDTO shop) throws IOException, URISyntaxException{
         shopSevice.editShop(shop);
    		return new ResponseEntity<ShopDTO>(shop, HttpStatus.OK);
        }

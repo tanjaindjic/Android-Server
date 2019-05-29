@@ -1,13 +1,18 @@
 package com.mastercart.service;
 
 
-import com.mastercart.model.Shop;
-import com.mastercart.model.dto.ShopDTO;
-import com.mastercart.repository.ShopRepository;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.mastercart.model.Shop;
+import com.mastercart.model.dto.ShopDTO;
+import com.mastercart.repository.ShopRepository;
 
 @Service
 public class ShopSevice {
@@ -27,7 +32,7 @@ public class ShopSevice {
         return shopRepository.save(s);
     }
     
-    public Shop addShop(ShopDTO shop) {
+    public Shop addShop(ShopDTO shop) throws IOException, URISyntaxException {
 		Shop newShop = new Shop();
 		newShop.setName(shop.getName());
 		newShop.setEmail(shop.getEmail());
@@ -35,11 +40,15 @@ public class ShopSevice {
 		newShop.setLat(Double.parseDouble(shop.getLat()));
 		newShop.setLng(Double.parseDouble(shop.getLng()));
 		newShop.setPhone(shop.getPhone());
-		newShop.setImageResource(shop.getImageResource());
+		byte[] data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/charger.jpg").toURI()));
+		data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/shop1.png").toURI()));
+      
+		newShop.setImageResource(data);
+		
 		return newShop;
 	}
     
-    public Shop editShop(ShopDTO shop) {
+    public Shop editShop(ShopDTO shop) throws IOException, URISyntaxException {
     	Shop editShop = shopRepository.findById(Long.parseLong(shop.getId())).get();
     	if(shop.getName()!="")
     	   editShop.setName(shop.getName());
@@ -53,8 +62,11 @@ public class ShopSevice {
         	editShop.setLng(Double.parseDouble(shop.getLng()));
     	if(shop.getPhone()!="")
     		editShop.setPhone(shop.getPhone());
-    	if(shop.getImageResource().length>0)
-        	editShop.setImageResource(shop.getImageResource());
+    	
+    	byte[] data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/charger.jpg").toURI()));
+		data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/shop1.png").toURI()));
+        editShop.setImageResource(data);
+        	
 	    return shopRepository.save(editShop);
 	}
 
