@@ -36,7 +36,7 @@ public class ShopSevice {
 		newShop.setLng(Double.parseDouble(shop.getLng()));
 		newShop.setPhone(shop.getPhone());
 		newShop.setImageResource(shop.getImageResource());
-		return shopRepository.save(newShop);
+		return newShop;
 	}
     
     public Shop editShop(ShopDTO shop) {

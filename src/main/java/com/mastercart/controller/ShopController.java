@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mastercart.model.Shop;
+import com.mastercart.model.User;
 import com.mastercart.model.dto.ShopDTO;
+import com.mastercart.model.enums.Role;
 import com.mastercart.service.ShopSevice;
+import com.mastercart.service.UserService;
 
 @RestController
 @RequestMapping(value = "/shop")
@@ -23,6 +26,9 @@ public class ShopController {
 
     @Autowired
     private ShopSevice shopSevice;
+    
+    @Autowired
+    private UserService userService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public Shop[] getAllShops(){
@@ -37,7 +43,14 @@ public class ShopController {
     
     @RequestMapping(value = "/add", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
    	public ResponseEntity<ShopDTO> add(@RequestBody ShopDTO shop){
-       	shopSevice.addShop(shop);
+    	Shop s = shopSevice.addShop(shop);
+       	User us = new User();
+       	us.setEmail(shop.getSellerEmail());
+       	us.setPassword("111");
+       	us.setRole(Role.PRODAVAC);
+       	userService.update(us);
+       	s.getSeller().add(us);
+       	shopSevice.save(s);
        	return new ResponseEntity<ShopDTO>(shop, HttpStatus.OK);
        	
        }

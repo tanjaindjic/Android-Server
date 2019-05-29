@@ -1,7 +1,15 @@
 package com.mastercart.model;
 
-import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Shop {
@@ -28,6 +36,7 @@ public class Shop {
     private List<Comment> comments;
 
     public Shop() {
+    	this.seller = new ArrayList<User>();
     }
 
     public Shop(String name, byte[] imageResource, String location, double lat, double lng, String phone, String email, boolean active, double rating, int numberOfRatings, List<Product> products, List<User> seller, List<Comment> comments) {

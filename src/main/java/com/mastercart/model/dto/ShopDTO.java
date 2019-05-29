@@ -9,11 +9,12 @@ public class ShopDTO {
     private String lng;
     private String phone;
     private String email;
+    private String sellerEmail;
     
     public ShopDTO() {}
     
 	public ShopDTO(String id, String name, byte[] imageResource, String location, String lat, String lng, String phone,
-                   String email) {
+                   String email, String sellerEmail) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -23,6 +24,7 @@ public class ShopDTO {
 		this.lng = lng;
 		this.phone = phone;
 		this.email = email;
+		this.sellerEmail = sellerEmail;
 	}
 	
 	public String getId() {
@@ -31,6 +33,16 @@ public class ShopDTO {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	
+
+	public String getSellerEmail() {
+		return sellerEmail;
+	}
+
+	public void setSellerEmail(String sellerEmail) {
+		this.sellerEmail = sellerEmail;
 	}
 
 	public String getName() {
