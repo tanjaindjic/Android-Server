@@ -68,4 +68,9 @@ public class UserService {
 		userRepository.save(user);
 	}
 
+	public void deleteCartItem(User user, CartItem cartItem) {
+		user.getCartItems().remove(cartItem);
+		userRepository.save(user);
+	}
+
 }

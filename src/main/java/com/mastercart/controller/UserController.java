@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mastercart.model.CartItem;
 import com.mastercart.model.Product;
 import com.mastercart.model.User;
 import com.mastercart.model.dto.AddUserDTO;
+import com.mastercart.model.dto.CartItemDTO;
 import com.mastercart.model.dto.EditUserDTO;
 import com.mastercart.security.TokenUtils;
+import com.mastercart.service.CartService;
 import com.mastercart.service.ProductSevice;
 import com.mastercart.service.UserService;
 
@@ -28,6 +31,8 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private ProductSevice productSevice;
+	@Autowired
+	private CartService cartService;
 	
 	@RequestMapping(value = "user", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> addUser(@RequestBody AddUserDTO userDTO){
@@ -64,6 +69,33 @@ public class UserController {
     	System.out.println("brisanje iz omiljenog");
     	Product product = productSevice.getProductById(id);
     	userService.deleteFavourite(user, product);
+    	return new ResponseEntity<String>("done", HttpStatus.OK);
+    }
+	
+	@RequestMapping(value = "user/cart", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CartItem> updateCartItem(@RequestHeader(value="Authorization") String Authorization, @RequestBody CartItemDTO cartItemDTO){
+		String email = tokenUtils.getUsernameFromToken(Authorization);
+	    if(email==null || email.isEmpty()) {
+	    	System.out.println("Pokusaj neautorizovane izmene cart item-a");	    	
+	    	return new ResponseEntity<>(null, HttpStatus.OK);
+	    }
+	    User user = userService.getUserByEmail(email);
+    	System.out.println("izmena cartItem");
+    	CartItem cartItem = cartService.update(cartItemDTO);
+    	return new ResponseEntity<CartItem>(cartItem, HttpStatus.OK);
+    }
+	
+	@RequestMapping(value = "user/cart/{id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> deleteCartItem(@RequestHeader(value="Authorization") String Authorization, @PathVariable Long id){
+		String email = tokenUtils.getUsernameFromToken(Authorization);
+	    if(email==null || email.isEmpty()) {
+	    	System.out.println("Pokusaj neautorizovanog update-ovanja profila");	    	
+	    	return new ResponseEntity<>(null, HttpStatus.OK);
+	    }
+	    User user = userService.getUserByEmail(email);
+    	System.out.println("brisanje iz korpe");
+    	CartItem cartItem = cartService.getProductById(id);
+    	userService.deleteCartItem(user, cartItem);
     	return new ResponseEntity<String>("done", HttpStatus.OK);
     }
 	
