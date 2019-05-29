@@ -11,7 +11,9 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String imageResource; //mozda path u storage?
+    @Lob
+    @Column(columnDefinition="BLOB")
+    private byte[] imageResource; //mozda path u storage?
     private double price;
     private String description;
     private int onStock;
@@ -28,7 +30,7 @@ public class Product {
     @JsonBackReference
     private List<Order> orders;
 
-    public Product(String name, String imageResource, double price, String description, int onStock, String size, int discount, boolean active, double rating, int numberOfRatings, List<Comment> comments, Category category, List<Order> orders) {
+    public Product(String name, byte[] imageResource, double price, String description, int onStock, String size, int discount, boolean active, double rating, int numberOfRatings, List<Comment> comments, Category category, List<Order> orders) {
         this.name = name;
         this.imageResource = imageResource;
         this.price = price;
@@ -78,11 +80,11 @@ public class Product {
         this.name = name;
     }
 
-    public String getImageResource() {
+    public byte[] getImageResource() {
         return imageResource;
     }
 
-    public void setImageResource(String imageResource) {
+    public void setImageResource(byte[] imageResource) {
         this.imageResource = imageResource;
     }
 

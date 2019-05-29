@@ -1,5 +1,9 @@
 package com.mastercart;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -42,7 +46,7 @@ public class StartData {
     private OrderRepository orderRepository;
 
     @PostConstruct
-    public void init(){
+    public void init() throws URISyntaxException, IOException {
         Shop s1 = new Shop("Mega shop", "", "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 3.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         shopRepository.save(s1);
         Shop s2 = new Shop("HalloStore", "", "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 4.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
@@ -59,14 +63,42 @@ public class StartData {
         Category c4 = categoryRepository.save(new Category("Speakers"));
         Category c5 = categoryRepository.save(new Category("Protection"));
 
-        Product p1 = new Product("Android Charger", "", 100.0, "Super quality mobile charger!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c1, new ArrayList<>());
+        Product p1 = new Product("Android Charger", new byte[0], 100.0, "Super quality mobile charger!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c1, new ArrayList<>());
         productRepository.save(p1);
-        Product p2 = new Product("JBL Speakers", "", 450.0, "Amazing JBL speakers!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c4, new ArrayList<>());
+        Product p2 = new Product("JBL Speakers", new byte[0], 450.0, "Amazing JBL speakers!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c4, new ArrayList<>());
         productRepository.save(p2);
-        Product p3 = new Product("Screen Protection", "", 10.0, "Protect your screen now!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
+        Product p3 = new Product("Phone Case", new byte[0], 10.0, "Protect your screen now!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
         productRepository.save(p3);
-        Product p4 = new Product("Phone Mask", "", 130.0, "Protect your mobile device!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
+        Product p4 = new Product("Screen Protection", new byte[0], 130.0, "Protect your mobile device!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
         productRepository.save(p4);
+        Product p5 = new Product("Earphonoes", new byte[0], 70.0, "High quality sound!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
+        productRepository.save(p5);
+        Product p6 = new Product("USB cable", new byte[0], 20.0, "Works with any Android phonw!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
+        productRepository.save(p6);
+        Product p7 = new Product("Phone Mask", new byte[0], 60.0, "Protect your mobile device!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
+        productRepository.save(p7);
+
+        byte[] data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/charger.jpg").toURI()));
+        p1.setImageResource(data);
+        productRepository.save(p1);
+        data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/jbl.jpeg").toURI()));
+        p2.setImageResource(data);
+        productRepository.save(p2);
+        data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/mask.jpg").toURI()));
+        p3.setImageResource(data);
+        productRepository.save(p3);
+        data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/screen.jpg").toURI()));
+        p4.setImageResource(data);
+        productRepository.save(p4);
+        data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/earphones.jpg").toURI()));
+        p5.setImageResource(data);
+        productRepository.save(p5);
+        data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/usb.jpg").toURI()));
+        p6.setImageResource(data);
+        productRepository.save(p6);
+        data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/case.jpg").toURI()));
+        p7.setImageResource(data);
+        productRepository.save(p7);
 
         Comment com1 = commentService.saveComment(new Comment(s1, null, "John Doe", "Very good shop!", new Date(System.currentTimeMillis()), 4.5));
         Comment com2 = commentService.saveComment(new Comment(s1, null, "Anne Doe", "Good products!", new Date(System.currentTimeMillis()), 4.0));
