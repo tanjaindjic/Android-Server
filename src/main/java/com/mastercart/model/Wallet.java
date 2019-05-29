@@ -22,7 +22,11 @@ public class Wallet {
         this.user = user;
     }
 
-    public Wallet() {  }
+    public Wallet() { 
+    	
+    	this.history = new ArrayList<Payment>();
+    	
+    }
 
     public Long getId() {
         return id;

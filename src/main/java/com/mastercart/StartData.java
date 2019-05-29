@@ -10,9 +10,6 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import com.mastercart.model.enums.OrderStatus;
-import com.mastercart.model.enums.OrderType;
-import com.mastercart.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,10 +18,21 @@ import com.mastercart.model.Category;
 import com.mastercart.model.Comment;
 import com.mastercart.model.Conversation;
 import com.mastercart.model.Order;
+import com.mastercart.model.Payment;
 import com.mastercart.model.Product;
 import com.mastercart.model.Shop;
 import com.mastercart.model.User;
+import com.mastercart.model.Wallet;
+import com.mastercart.model.enums.OrderStatus;
+import com.mastercart.model.enums.OrderType;
 import com.mastercart.model.enums.Role;
+import com.mastercart.repository.CategoryRepository;
+import com.mastercart.repository.OrderRepository;
+import com.mastercart.repository.PaymentRepository;
+import com.mastercart.repository.ProductRepository;
+import com.mastercart.repository.ShopRepository;
+import com.mastercart.repository.UserRepository;
+import com.mastercart.repository.WalletRepository;
 import com.mastercart.service.CommentService;
 
 @Component
@@ -44,6 +52,10 @@ public class StartData {
     private WalletRepository walletRepository;
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
+    private PaymentRepository paymentRepository;
+    
+    
 
     @PostConstruct
     public void init() throws URISyntaxException, IOException {
@@ -118,6 +130,17 @@ public class StartData {
         productRepository.save(p1);
         p2.getComments().add(com7);
         productRepository.save(p2);
+        
+        Payment py = new Payment();
+        py.setAmount(333);
+        py.setDate(new Date());
+        paymentRepository.save(py);
+        Wallet w1 = new Wallet();
+        w1.setBalance(123);
+        w1.getHistory().add(py);
+        py.setWallet(w1);
+        walletRepository.save(w1);
+        paymentRepository.save(py);
 
         User admin = new User( "admin@gmail.com", "admin", "Admin", "Adminic", "Kosovska 53", "060/123-123", Role.ADMIN, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         admin = userRepository.save(admin);
@@ -128,8 +151,10 @@ public class StartData {
         ArrayList<Product> favMika = new ArrayList<Product>();
         favMika.add(p1);
         favMika.add(p2);
-        User buyer1 = new User( "mika@gmail.com", "mika", "Mika", "Mikic", "Mike Antica 26", "063/343-443", Role.KUPAC, "", favMika, null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        User buyer1 = new User( "mika@gmail.com", "mika", "Mika", "Mikic", "Mike Antica 26", "063/343-443", Role.KUPAC, "", favMika, w1, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        w1.setUser(buyer1);
         buyer1 = userRepository.save(buyer1);
+        walletRepository.save(w1);
         User buyer2 = new User( "pera@gmail.com", "pera", "Pera", "Peric", "Sonje Marinkovic  11", "064/767-696", Role.KUPAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         buyer2 = userRepository.save(buyer2);
 
