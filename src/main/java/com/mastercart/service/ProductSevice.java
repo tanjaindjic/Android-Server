@@ -1,6 +1,10 @@
 package com.mastercart.service;
 
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +28,7 @@ public class ProductSevice {
         return productRepository.findById(id).get();
     }
     
-    public Product addProduct(ProductDTO product) {
+    public Product addProduct(ProductDTO product) throws IOException, URISyntaxException {
     	Product newProduct = new Product();
     	newProduct.setName(product.getName());
     	newProduct.setDescription(product.getDescription());
@@ -32,10 +36,12 @@ public class ProductSevice {
     	newProduct.setPrice(Double.parseDouble(product.getPrice()));
     	newProduct.setSize(product.getSize());
     	newProduct.setOnStock(Integer.parseInt(product.getOnStock()));
+    	byte[] data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/charger.jpg").toURI()));
+        newProduct.setImageResource(data);
     	return newProduct;
     }
 
-    public Product editProduct(ProductDTO product) {
+    public Product editProduct(ProductDTO product) throws IOException, URISyntaxException {
     	Product newProduct = productRepository.findById(Long.parseLong(product.getId())).get();
     	if(product.getName()!="")
     		newProduct.setName(product.getName());
@@ -49,6 +55,10 @@ public class ProductSevice {
     		newProduct.setSize(product.getSize());
     	if(product.getOnStock()!="")
     		newProduct.setOnStock(Integer.parseInt(product.getOnStock()));
+    	
+    	byte[] data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/charger.jpg").toURI()));
+        newProduct.setImageResource(data);
+        
     	productRepository.save(newProduct);
     	return newProduct;
     }
