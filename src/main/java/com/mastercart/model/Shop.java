@@ -1,10 +1,6 @@
 package com.mastercart.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.google.maps.model.LatLng;
-
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,7 +9,9 @@ public class Shop {
     @GeneratedValue
     private Long id;
     private String name;
-    private String imageResource;
+    @Lob
+    @Column(columnDefinition="BLOB")
+    private byte[] imageResource;
     private String location;
     public double lat;
     public double lng;
@@ -32,7 +30,7 @@ public class Shop {
     public Shop() {
     }
 
-    public Shop(String name, String imageResource, String location, double lat, double lng, String phone, String email, boolean active, double rating, int numberOfRatings, List<Product> products, List<User> seller, List<Comment> comments) {
+    public Shop(String name, byte[] imageResource, String location, double lat, double lng, String phone, String email, boolean active, double rating, int numberOfRatings, List<Product> products, List<User> seller, List<Comment> comments) {
 
         this.name = name;
         this.imageResource = imageResource;
@@ -85,11 +83,11 @@ public class Shop {
         this.name = name;
     }
 
-    public String getImageResource() {
+    public byte[] getImageResource() {
         return imageResource;
     }
 
-    public void setImageResource(String imageResource) {
+    public void setImageResource(byte[] imageResource) {
         this.imageResource = imageResource;
     }
 

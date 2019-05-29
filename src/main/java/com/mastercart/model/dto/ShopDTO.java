@@ -3,7 +3,7 @@ package com.mastercart.model.dto;
 public class ShopDTO {
 	private String id;
 	private String name;
-    private String imageResource;
+    private byte[] imageResource;
     private String location;
     private String lat;
     private String lng;
@@ -12,8 +12,8 @@ public class ShopDTO {
     
     public ShopDTO() {}
     
-	public ShopDTO(String id,String name, String imageResource, String location, String lat, String lng, String phone,
-			String email) {
+	public ShopDTO(String id, String name, byte[] imageResource, String location, String lat, String lng, String phone,
+                   String email) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -41,11 +41,11 @@ public class ShopDTO {
 		this.name = name;
 	}
 
-	public String getImageResource() {
+	public byte[] getImageResource() {
 		return imageResource;
 	}
 
-	public void setImageResource(String imageResource) {
+	public void setImageResource(byte[] imageResource) {
 		this.imageResource = imageResource;
 	}
 

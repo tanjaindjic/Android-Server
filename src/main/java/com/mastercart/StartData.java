@@ -59,14 +59,16 @@ public class StartData {
 
     @PostConstruct
     public void init() throws URISyntaxException, IOException {
-        Shop s1 = new Shop("Mega shop", "", "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 3.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        Shop s1 = new Shop("Mega shop", new byte[0], "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 3.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         shopRepository.save(s1);
-        Shop s2 = new Shop("HalloStore", "", "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 4.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        Shop s2 = new Shop("Phone Shop", new byte[0], "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 4.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         shopRepository.save(s2);
-        Shop s3 = new Shop("Mobile Shop", "", "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 2.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        Shop s3 = new Shop("Hallo Shop", new byte[0], "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 2.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         shopRepository.save(s3);
-        Shop s4 = new Shop("Cells", "", "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        Shop s4 = new Shop("4Cells", new byte[0], "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         shopRepository.save(s4);
+        Shop s5 = new Shop("Mr. Mobile", new byte[0], "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        shopRepository.save(s5);
 
         Category c0 = categoryRepository.save(new Category("All"));
         Category c1 = categoryRepository.save(new Category("Chargers"));
@@ -83,7 +85,7 @@ public class StartData {
         productRepository.save(p3);
         Product p4 = new Product("Screen Protection", new byte[0], 130.0, "Protect your mobile device!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
         productRepository.save(p4);
-        Product p5 = new Product("Earphonoes", new byte[0], 70.0, "High quality sound!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
+        Product p5 = new Product("Earphones", new byte[0], 70.0, "High quality sound!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
         productRepository.save(p5);
         Product p6 = new Product("USB cable", new byte[0], 20.0, "Works with any Android phonw!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
         productRepository.save(p6);
@@ -111,6 +113,22 @@ public class StartData {
         data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/case.jpg").toURI()));
         p7.setImageResource(data);
         productRepository.save(p7);
+
+        data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/shop1.png").toURI()));
+        s1.setImageResource(data);
+        shopRepository.save(s1);
+        data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/shop2.jpg").toURI()));
+        s2.setImageResource(data);
+        shopRepository.save(s2);
+        data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/shop3.jpeg").toURI()));
+        s3.setImageResource(data);
+        shopRepository.save(s3);
+        data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/shop4.jpg").toURI()));
+        s4.setImageResource(data);
+        shopRepository.save(s4);
+        data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/shop5.png").toURI()));
+        s5.setImageResource(data);
+        shopRepository.save(s5);
 
         Comment com1 = commentService.saveComment(new Comment(s1, null, "John Doe", "Very good shop!", new Date(System.currentTimeMillis()), 4.5));
         Comment com2 = commentService.saveComment(new Comment(s1, null, "Anne Doe", "Good products!", new Date(System.currentTimeMillis()), 4.0));

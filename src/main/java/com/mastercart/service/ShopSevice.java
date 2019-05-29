@@ -53,7 +53,7 @@ public class ShopSevice {
         	editShop.setLng(Double.parseDouble(shop.getLng()));
     	if(shop.getPhone()!="")
     		editShop.setPhone(shop.getPhone());
-    	if(shop.getImageResource()!="")
+    	if(shop.getImageResource().length>0)
         	editShop.setImageResource(shop.getImageResource());
 	    return shopRepository.save(editShop);
 	}
