@@ -169,7 +169,7 @@ public class StartData {
         ArrayList<Product> favMika = new ArrayList<Product>();
         favMika.add(p1);
         favMika.add(p2);
-        User buyer1 = new User( "mika@gmail.com", "mika", "Mika", "Mikic", "Mike Antica 26", "063/343-443", Role.KUPAC, "", favMika, null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        User buyer1 = new User( "mika@gmail.com", "mika", "Mika", "Mikic", "Mike Antica 26", "063/343-443", Role.KUPAC, "", favMika, w1, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         w1.setUser(buyer1);
         buyer1 = userRepository.save(buyer1);
         w1 = walletRepository.save(w1);

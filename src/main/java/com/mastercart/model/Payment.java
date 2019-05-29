@@ -1,10 +1,13 @@
 package com.mastercart.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Payment {
@@ -15,6 +18,7 @@ public class Payment {
     private double amount;
     private Date date;
     @ManyToOne
+    @JsonBackReference
     private Wallet wallet;
 
     public Payment(int id, double amount, Date date, Wallet wallet) {
