@@ -23,7 +23,6 @@ public class Shop {
     private double rating;
     private int numberOfRatings;
     @OneToMany
-    @JsonBackReference
     private List<Product> products;
     @OneToMany
     private List<User> seller;

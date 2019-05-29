@@ -39,8 +39,7 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String email, String password, String firstName, String lastName, String address, String phone, Role role, String imageResource, List<Product> favorites, Wallet wallet, List<CartItem> cartItems, List<Order> orders, List<Conversation>conversations) {
-        this.id = id;
+    public User( String email, String password, String firstName, String lastName, String address, String phone, Role role, String imageResource, List<Product> favorites, Wallet wallet, List<CartItem> cartItems, List<Order> orders, List<Conversation>conversations) {
     	this.email = email;
         this.password = password;
         this.firstName = firstName;

@@ -31,7 +31,7 @@ public class UserService {
 	}
 
 	public User addUser(AddUserDTO userDTO) {
-		User user = new User((long) 1, userDTO.getEmail(), userDTO.getPassword(), userDTO.getFirstName(), userDTO.getLastName(), "", "", Role.KUPAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+		User user = new User( userDTO.getEmail(), userDTO.getPassword(), userDTO.getFirstName(), userDTO.getLastName(), "", "", Role.KUPAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
 		return userRepository.save(user);
 	}
 
