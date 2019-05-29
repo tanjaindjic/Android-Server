@@ -1,6 +1,8 @@
 package com.mastercart.controller;
 
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +49,7 @@ public class ProductController {
     }
     
     @RequestMapping(value = "/add", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-   	public ResponseEntity<ProductDTO> add(@RequestBody ProductDTO product){
+   	public ResponseEntity<ProductDTO> add(@RequestBody ProductDTO product) throws IOException, URISyntaxException{
     	Shop shop = shopService.getShopById(Long.parseLong(product.getIdShop()));
     	Product pr = productSevice.addProduct(product);
     	Category cat = categoryService.getCategoryById(Long.parseLong(product.getIdCategory()));
@@ -59,7 +61,7 @@ public class ProductController {
        }
     
     @RequestMapping(value = "/edit", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-   	public ResponseEntity<ProductDTO> edit(@RequestBody ProductDTO product){
+   	public ResponseEntity<ProductDTO> edit(@RequestBody ProductDTO product) throws IOException, URISyntaxException{
     	Product editProduct = productSevice.editProduct(product);
     	Category cat = categoryService.getCategoryById(Long.parseLong(product.getIdCategory()));
     	editProduct.setCategory(cat);
