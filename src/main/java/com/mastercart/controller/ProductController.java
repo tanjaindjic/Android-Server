@@ -52,6 +52,7 @@ public class ProductController {
     	Product pr = productSevice.addProduct(product);
     	Category cat = categoryService.getCategoryById(Long.parseLong(product.getIdCategory()));
     	pr.setCategory(cat);
+    	productSevice.update(pr);
     	shop.getProducts().add(pr);
     	shopService.save(shop);
     	return new ResponseEntity<ProductDTO>(product, HttpStatus.OK);
