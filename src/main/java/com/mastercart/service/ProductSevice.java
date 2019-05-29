@@ -31,8 +31,7 @@ public class ProductSevice {
     	newProduct.setDiscount(Integer.parseInt(product.getDiscount()));
     	newProduct.setPrice(Double.parseDouble(product.getPrice()));
     	newProduct.setSize(product.getSize());
-    //	newProduct.setOnStock(Integer.getInteger(product.getOnStock()));
-    	productRepository.save(newProduct);
+    	newProduct.setOnStock(Integer.parseInt(product.getOnStock()));
     	return newProduct;
     }
 
@@ -48,7 +47,8 @@ public class ProductSevice {
     		newProduct.setPrice(Double.parseDouble(product.getPrice()));
     	if(product.getSize()!="")
     		newProduct.setSize(product.getSize());
-    //	newProduct.setOnStock(Integer.getInteger(product.getOnStock()));
+    	if(product.getOnStock()!="")
+    		newProduct.setOnStock(Integer.parseInt(product.getOnStock()));
     	productRepository.save(newProduct);
     	return newProduct;
     }

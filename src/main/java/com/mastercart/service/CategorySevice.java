@@ -27,5 +27,9 @@ public class CategorySevice {
 		return categoryRepository.save(category);
 	}
 	
+	public Category getCategoryById(Long id) {
+        return categoryRepository.findById(id).get();
+    }
+	
 	
 }

@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mastercart.model.Category;
 import com.mastercart.model.Product;
 import com.mastercart.model.Shop;
 import com.mastercart.model.dto.ProductDTO;
+import com.mastercart.service.CategorySevice;
 import com.mastercart.service.ProductSevice;
 import com.mastercart.service.ShopSevice;
 
@@ -29,6 +31,9 @@ public class ProductController {
 
     @Autowired
     private ShopSevice shopService;
+    
+    @Autowired
+    private CategorySevice categoryService;
     
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public Product[] getAllProducts(){
@@ -45,14 +50,19 @@ public class ProductController {
    	public ResponseEntity<ProductDTO> add(@RequestBody ProductDTO product){
     	Shop shop = shopService.getShopById(Long.parseLong(product.getIdShop()));
     	Product pr = productSevice.addProduct(product);
-        shop.getProducts().add(pr);
+    	Category cat = categoryService.getCategoryById(Long.parseLong(product.getIdCategory()));
+    	pr.setCategory(cat);
+    	shop.getProducts().add(pr);
     	shopService.save(shop);
     	return new ResponseEntity<ProductDTO>(product, HttpStatus.OK);
        }
     
     @RequestMapping(value = "/edit", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
    	public ResponseEntity<ProductDTO> edit(@RequestBody ProductDTO product){
-    	productSevice.editProduct(product);
+    	Product editProduct = productSevice.editProduct(product);
+    	Category cat = categoryService.getCategoryById(Long.parseLong(product.getIdCategory()));
+    	editProduct.setCategory(cat);
+    	productSevice.update(editProduct);
    		return new ResponseEntity<ProductDTO>(product, HttpStatus.OK);
        }
 
