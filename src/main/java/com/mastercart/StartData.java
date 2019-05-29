@@ -123,24 +123,24 @@ public class StartData {
         s1.getComments().add(com1);
         s1.getComments().add(com2);
         s1.getComments().add(com3);
-        shopRepository.save(s1);
+        s1 = shopRepository.save(s1);
         p1.getComments().add(com4);
         p1.getComments().add(com5);
         p1.getComments().add(com6);
-        productRepository.save(p1);
+        p1 = productRepository.save(p1);
         p2.getComments().add(com7);
-        productRepository.save(p2);
+        p2 = productRepository.save(p2);
         
         Payment py = new Payment();
         py.setAmount(333);
         py.setDate(new Date());
-        paymentRepository.save(py);
+        py = paymentRepository.save(py);
         Wallet w1 = new Wallet();
         w1.setBalance(123);
         w1.getHistory().add(py);
         py.setWallet(w1);
-        walletRepository.save(w1);
-        paymentRepository.save(py);
+        w1 = walletRepository.save(w1);
+        py = paymentRepository.save(py);
 
         User admin = new User( "admin@gmail.com", "admin", "Admin", "Adminic", "Kosovska 53", "060/123-123", Role.ADMIN, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         admin = userRepository.save(admin);
@@ -151,23 +151,23 @@ public class StartData {
         ArrayList<Product> favMika = new ArrayList<Product>();
         favMika.add(p1);
         favMika.add(p2);
-        User buyer1 = new User( "mika@gmail.com", "mika", "Mika", "Mikic", "Mike Antica 26", "063/343-443", Role.KUPAC, "", favMika, w1, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        User buyer1 = new User( "mika@gmail.com", "mika", "Mika", "Mikic", "Mike Antica 26", "063/343-443", Role.KUPAC, "", favMika, null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         w1.setUser(buyer1);
         buyer1 = userRepository.save(buyer1);
-        walletRepository.save(w1);
+        w1 = walletRepository.save(w1);
         User buyer2 = new User( "pera@gmail.com", "pera", "Pera", "Peric", "Sonje Marinkovic  11", "064/767-696", Role.KUPAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         buyer2 = userRepository.save(buyer2);
 
 
         List orders = new ArrayList<>();
         Order o1 = new Order(new Date(System.currentTimeMillis()), OrderStatus.DELIVERED, OrderType.DELIVERY, 100.0, p1, 1, buyer1);
-        orderRepository.save(o1);
+        o1 = orderRepository.save(o1);
         orders.add(o1);
         Order o2 = new Order(new Date(System.currentTimeMillis()), OrderStatus.DELIVERED, OrderType.DELIVERY, 50.0, p3, 1, buyer1);
-        orderRepository.save(o2);
+        o2 = orderRepository.save(o2);
         orders.add(o2);
         buyer1.setOrders(orders);
-        userRepository.save(buyer1);
+        buyer1 = userRepository.save(buyer1);
     }
 
 

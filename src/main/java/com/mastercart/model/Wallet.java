@@ -1,6 +1,9 @@
 package com.mastercart.model;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +16,7 @@ public class Wallet {
     @OneToMany
     private List<Payment> history;
     @OneToOne
+    @JsonBackReference
     private User user;
 
     public Wallet( double balance, List<Payment> history, User user) {
