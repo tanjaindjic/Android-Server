@@ -5,11 +5,13 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mastercart.model.Product;
 import com.mastercart.model.Shop;
 import com.mastercart.model.dto.ShopDTO;
 import com.mastercart.repository.ShopRepository;
@@ -72,5 +74,15 @@ public class ShopSevice {
 
 	public void updateShop(Shop shop) {
 		shopRepository.save(shop);		
+	}
+
+	public ArrayList<Shop> getShops(ArrayList<Long> ids) {
+		ArrayList<Shop> retVal = new ArrayList<Shop>();
+		for(Long i : ids) {
+			Shop p0 = shopRepository.getOne(i);
+			if(p0!=null)
+				retVal.add(p0);
+		}
+		return retVal;
 	}
 }

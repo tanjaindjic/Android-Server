@@ -175,7 +175,7 @@ public class StartData {
         w1.setUser(buyer1);
         buyer1 = userRepository.save(buyer1);
         w1 = walletRepository.save(w1);
-        User buyer2 = new User( "pera@gmail.com", "pera", "Pera", "Peric", "Sonje Marinkovic  11", "064/767-696", Role.KUPAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        User buyer2 = new User( "pera@gmail.com", "pera", "Pera", "Peric", "Sonje Marinkovic 11", "064/767-696", Role.KUPAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         buyer2 = userRepository.save(buyer2);
 
 

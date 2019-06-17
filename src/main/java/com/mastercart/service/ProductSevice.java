@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +66,16 @@ public class ProductSevice {
 
 	public void update(Product product) {
 		productRepository.save(product);
+	}
+
+	public ArrayList<Product> getProducts(ArrayList<Long> ids) {
+		ArrayList<Product> retVal = new ArrayList<Product>();
+		for(Long i : ids) {
+			Product p0 = productRepository.getOne(i);
+			if(p0!=null)
+				retVal.add(p0);
+		}
+		return retVal;
 	}
 
 
