@@ -1,5 +1,7 @@
 package com.mastercart.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -123,5 +125,19 @@ public class UserController {
     	Product product = productSevice.getProductById(id);
     	userService.addToFavs(user, product);
     	return new ResponseEntity<String>("done", HttpStatus.OK);
+    }
+	
+
+	@RequestMapping(value = "user/favorite/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Boolean> getFavorites(@RequestHeader(value="Authorization") String Authorization, @PathVariable Long id){
+		String email = tokenUtils.getUsernameFromToken(Authorization);
+	    if(email==null || email.isEmpty()) {  	
+	    	return new ResponseEntity<>(false, HttpStatus.OK);
+	    }
+	    User user = userService.getUserByEmail(email);
+    	System.out.println("pretraga favorite proizvoda");
+    	Boolean retVal = false;
+    	retVal = userService.findFavsIds(user, id);
+    	return new ResponseEntity<Boolean>(retVal, HttpStatus.OK);
     }
 }

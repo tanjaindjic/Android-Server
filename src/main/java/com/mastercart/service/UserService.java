@@ -73,4 +73,13 @@ public class UserService {
 		userRepository.save(user);
 	}
 
+	public Boolean findFavsIds(User user, Long id) {
+		ArrayList<Long> retVal = new ArrayList<Long>();
+		for(Product p : user.getFavorites()) {
+			if(p.getId()==id)
+				return true;
+		}
+		return false;
+	}
+
 }
