@@ -78,19 +78,19 @@ public class StartData {
         Category c5 = categoryRepository.save(new Category("Protection"));
 
         Product p1 = new Product("Android Charger", new byte[0], 100.0, "Super quality mobile charger!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c1, new ArrayList<>());
-        productRepository.save(p1);
+        p1 = productRepository.save(p1);
         Product p2 = new Product("JBL Speakers", new byte[0], 450.0, "Amazing JBL speakers!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c4, new ArrayList<>());
-        productRepository.save(p2);
+        p2 = productRepository.save(p2);
         Product p3 = new Product("Phone Case", new byte[0], 10.0, "Protect your screen now!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
-        productRepository.save(p3);
+        p3 = productRepository.save(p3);
         Product p4 = new Product("Screen Protection", new byte[0], 130.0, "Protect your mobile device!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
-        productRepository.save(p4);
+        p4 = productRepository.save(p4);
         Product p5 = new Product("Earphones", new byte[0], 70.0, "High quality sound!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
-        productRepository.save(p5);
+        p5 = productRepository.save(p5);
         Product p6 = new Product("USB cable", new byte[0], 20.0, "Works with any Android phonw!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
-        productRepository.save(p6);
+        p6 = productRepository.save(p6);
         Product p7 = new Product("Phone Mask", new byte[0], 60.0, "Protect your mobile device!", 12, "20x50cm", 0, true, 4.6, 12, new ArrayList<>(), c5, new ArrayList<>());
-        productRepository.save(p7);
+        p7 = productRepository.save(p7);
 
         byte[] data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/charger.jpg").toURI()));
         p1.setImageResource(data);

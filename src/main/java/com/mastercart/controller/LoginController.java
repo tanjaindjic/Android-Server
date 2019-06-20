@@ -55,4 +55,10 @@ public class LoginController {
 	    }
 	  	return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
+	
+
+	@RequestMapping(value = "offline", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Boolean> offline(){
+	  	return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+	}
 }
