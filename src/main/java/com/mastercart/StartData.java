@@ -59,15 +59,15 @@ public class StartData {
 
     @PostConstruct
     public void init() throws URISyntaxException, IOException {
-        Shop s1 = new Shop("Mega shop", new byte[0], "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 3.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        Shop s1 = new Shop("Mega", new byte[0], "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 3.5, 7, new ArrayList<>(), null, new ArrayList<>());
         shopRepository.save(s1);
-        Shop s2 = new Shop("Phone Shop", new byte[0], "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 4.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        Shop s2 = new Shop("Phone Shop", new byte[0], "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 4.5, 7, new ArrayList<>(), null, new ArrayList<>());
         shopRepository.save(s2);
-        Shop s3 = new Shop("Hallo Shop", new byte[0], "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 2.5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        Shop s3 = new Shop("Hallo Shop", new byte[0], "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 2.5, 7, new ArrayList<>(), null, new ArrayList<>());
         shopRepository.save(s3);
-        Shop s4 = new Shop("4Cells", new byte[0], "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        Shop s4 = new Shop("4Cells", new byte[0], "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 5, 7, new ArrayList<>(), null, new ArrayList<>());
         shopRepository.save(s4);
-        Shop s5 = new Shop("Mr. Mobile", new byte[0], "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 5, 7, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        Shop s5 = new Shop("Mr. Mobile", new byte[0], "Test adresa", 35.5, 215.5, "+3815565648", "test@mail.com", true, 5, 7, new ArrayList<>(), null, new ArrayList<>());
         shopRepository.save(s5);
 
         Category c0 = categoryRepository.save(new Category("All"));
@@ -162,12 +162,32 @@ public class StartData {
 
         User admin = new User( "admin@gmail.com", "admin", "Admin", "Adminic", "Kosovska 53", "060/123-123", Role.ADMIN, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         admin = userRepository.save(admin);
+
         User seller1 = new User( "seller1@gmail.com", "seller1", "Sale", "Seller", "Puskinova 13", "061/234-234", Role.PRODAVAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         seller1 = userRepository.save(seller1);
-        s1.getSeller().add(seller1);
+        s1.setSeller(seller1);
         shopRepository.save(s1);
+
         User seller2 = new User("seller2@gmail.com", "seller2", "Proda", "Prodavac", "Strazilovska 13", "062/345-345", Role.PRODAVAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         seller2 = userRepository.save(seller2);
+        s2.setSeller(seller2);
+        shopRepository.save(s2);
+
+        User seller3 = new User("seller3@gmail.com", "seller3", "Proda", "Prodavac", "Strazilovska 13", "062/345-345", Role.PRODAVAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        seller3 = userRepository.save(seller3);
+        s3.setSeller(seller3);
+        shopRepository.save(s3);
+
+        User seller4 = new User("seller4@gmail.com", "seller4", "Proda", "Prodavac", "Strazilovska 13", "062/345-345", Role.PRODAVAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        seller4 = userRepository.save(seller4);
+        s4.setSeller(seller4);
+        shopRepository.save(s4);
+
+        User seller5 = new User("seller5@gmail.com", "seller5", "Proda", "Prodavac", "Strazilovska 13", "062/345-345", Role.PRODAVAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        seller5 = userRepository.save(seller5);
+        s5.setSeller(seller5);
+        shopRepository.save(s5);
+
         ArrayList<Product> favMika = new ArrayList<Product>();
         favMika.add(p1);
         favMika.add(p2);

@@ -3,13 +3,7 @@ package com.mastercart.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class Shop {
@@ -30,16 +24,15 @@ public class Shop {
     private int numberOfRatings;
     @OneToMany
     private List<Product> products;
-    @OneToMany
-    private List<User> seller;
+    @OneToOne
+    private User seller;
     @OneToMany(cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST})
     private List<Comment> comments;
 
     public Shop() {
-    	this.seller = new ArrayList<User>();
     }
 
-    public Shop(String name, byte[] imageResource, String location, double lat, double lng, String phone, String email, boolean active, double rating, int numberOfRatings, List<Product> products, List<User> seller, List<Comment> comments) {
+    public Shop(String name, byte[] imageResource, String location, double lat, double lng, String phone, String email, boolean active, double rating, int numberOfRatings, List<Product> products, User seller, List<Comment> comments) {
 
         this.name = name;
         this.imageResource = imageResource;
@@ -172,11 +165,11 @@ public class Shop {
         this.products = products;
     }
 
-    public List<User> getSeller() {
+    public User getSeller() {
         return seller;
     }
 
-    public void setSeller(List<User> seller) {
+    public void setSeller(User seller) {
         this.seller = seller;
     }
 

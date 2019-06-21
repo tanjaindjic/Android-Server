@@ -85,4 +85,8 @@ public class ShopSevice {
 		}
 		return retVal;
 	}
+
+    public Shop getShopBySellerId(Long id) {
+    	return shopRepository.findBySellerId(id);
+    }
 }

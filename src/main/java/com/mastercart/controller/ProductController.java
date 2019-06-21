@@ -44,6 +44,13 @@ public class ProductController {
         return products.toArray(new Product[products.size()]);
     }
 
+    @GetMapping(value = "/seller/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Product[] getSellersProducts(@PathVariable Long id){
+        Shop shop = shopService.getShopBySellerId(id);
+        List<Product> products = shop.getProducts();
+        return products.toArray(new Product[products.size()]);
+    }
+
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Product getProductById(@PathVariable Long id){
         return productSevice.getProductById(id);

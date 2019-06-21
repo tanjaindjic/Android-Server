@@ -52,7 +52,7 @@ public class ShopController {
        	us.setPassword("111");
        	us.setRole(Role.PRODAVAC);
        	userService.update(us);
-       	s.getSeller().add(us);
+       	s.setSeller(us);
        	shopSevice.save(s);
        	return new ResponseEntity<ShopDTO>(shop, HttpStatus.OK);
        	
