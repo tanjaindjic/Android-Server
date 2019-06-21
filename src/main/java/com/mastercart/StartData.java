@@ -166,11 +166,19 @@ public class StartData {
         User seller1 = new User( "seller1@gmail.com", "seller1", "Sale", "Seller", "Puskinova 13", "061/234-234", Role.PRODAVAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         seller1 = userRepository.save(seller1);
         s1.setSeller(seller1);
+
         shopRepository.save(s1);
+        s1.getProducts().add(p1);
+        s1.getProducts().add(p2);
+        s1.getProducts().add(p3);
+        s1.getProducts().add(p4);
+        s1.getProducts().add(p5);
 
         User seller2 = new User("seller2@gmail.com", "seller2", "Proda", "Prodavac", "Strazilovska 13", "062/345-345", Role.PRODAVAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         seller2 = userRepository.save(seller2);
         s2.setSeller(seller2);
+        s2.getProducts().add(p6);
+        s2.getProducts().add(p7);
         shopRepository.save(s2);
 
         User seller3 = new User("seller3@gmail.com", "seller3", "Proda", "Prodavac", "Strazilovska 13", "062/345-345", Role.PRODAVAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
