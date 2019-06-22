@@ -5,6 +5,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mastercart.model.Product;
+import com.mastercart.service.ProductSevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -28,32 +30,43 @@ import com.mastercart.service.UserService;
 public class ShopController {
 
     @Autowired
-    private ShopSevice shopSevice;
+    private ShopSevice shopService;
     
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ProductSevice productSevice;
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public Shop[] getAllShops(){
-        List<Shop> shops = shopSevice.getAllShops();
+        List<Shop> shops = shopService.getAllShops();
+        return shops.toArray(new Shop[shops.size()]);
+    }
+
+    @GetMapping(value = "/seller/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Shop[] getSellersShops(@PathVariable Long id){
+        Shop shop = shopService.getShopBySellerId(id);
+        List<Shop> shops = new ArrayList<>();
+        shops.add(shop);
         return shops.toArray(new Shop[shops.size()]);
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Shop getShopById(@PathVariable Long id){
-        return shopSevice.getShopById(id);
+        return shopService.getShopById(id);
     }
     
     @RequestMapping(value = "/add", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
    	public ResponseEntity<ShopDTO> add(@RequestBody ShopDTO shop) throws IOException, URISyntaxException{
-    	Shop s = shopSevice.addShop(shop);
+    	Shop s = shopService.addShop(shop);
        	User us = new User();
        	us.setEmail(shop.getSellerEmail());
        	us.setPassword("111");
        	us.setRole(Role.PRODAVAC);
        	userService.update(us);
        	s.setSeller(us);
-       	shopSevice.save(s);
+       	shopService.save(s);
        	return new ResponseEntity<ShopDTO>(shop, HttpStatus.OK);
        	
        }
@@ -63,13 +76,13 @@ public class ShopController {
     	if(id==null) {
         	return new ResponseEntity<>(null, HttpStatus.OK);    		
     	}
-    	Shop lista = shopSevice.getShopById(id);
+    	Shop lista = shopService.getShopById(id);
     	return new ResponseEntity<Shop>(lista, HttpStatus.OK);       	
        }
     
     @RequestMapping(value = "/edit", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
    	public ResponseEntity<ShopDTO> edit(@RequestBody ShopDTO shop) throws IOException, URISyntaxException{
-        shopSevice.editShop(shop);
+        shopService.editShop(shop);
    		return new ResponseEntity<ShopDTO>(shop, HttpStatus.OK);
        }
 
