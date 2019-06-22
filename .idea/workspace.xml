@@ -4,6 +4,8 @@
     <list default="true" id="bf0fc773-631e-4198-9c81-5c762a62cfd6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercart/model/Product.java" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/model/Product.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercart/model/Shop.java" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/model/Shop.java" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/StartData.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/StartData.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/controller/ProductController.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/controller/ProductController.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/controller/ShopController.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/controller/ShopController.class" />
@@ -24,12 +26,26 @@
       <file leaf-file-name="Product.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/model/Product.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="259">
+              <caret line="32" column="20" lean-forward="false" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
               <folding>
-                <element signature="e#2496#2497#0" expanded="true" />
-                <element signature="e#2532#2533#0" expanded="true" />
+                <element signature="e#2571#2572#0" expanded="true" />
+                <element signature="e#2607#2608#0" expanded="true" />
+                <element signature="e#4415#4416#0" expanded="true" />
+                <element signature="e#4442#4443#0" expanded="true" />
+                <element signature="e#4480#4481#0" expanded="true" />
+                <element signature="e#4512#4513#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Shop.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/model/Shop.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="27" column="22" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -59,13 +75,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StartData.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StartData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="828">
-              <caret line="91" column="122" lean-forward="false" selection-start-line="91" selection-start-column="122" selection-end-line="91" selection-end-column="122" />
+            <state relative-caret-position="450">
+              <caret line="91" column="172" lean-forward="false" selection-start-line="91" selection-start-column="172" selection-end-line="91" selection-end-column="172" />
               <folding>
-                <element signature="e#11476#11485#0" expanded="true" />
+                <element signature="e#11566#11575#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -114,13 +130,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/model/Order.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/model/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mastercart/model/Product.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mastercart/model/Shop.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/service/ShopSevice.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/repository/ShopRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/controller/ProductController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/controller/ShopController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mastercart/model/Product.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mastercart/model/Shop.java" />
       </list>
     </option>
   </component>
@@ -572,7 +588,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561185049631</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="sredjeni ratinzi">
+      <created>1561185812742</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1561185812742</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -629,7 +652,8 @@
     <MESSAGE value="dodate slike za prodavnice" />
     <MESSAGE value="izmena modela, dodati selleri u prodavnice" />
     <MESSAGE value="dodata metoda za getovanje prodavnice svakog prodavca" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodata metoda za getovanje prodavnice svakog prodavca" />
+    <MESSAGE value="sredjeni ratinzi" />
+    <option name="LAST_COMMIT_MESSAGE" value="sredjeni ratinzi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -671,7 +695,7 @@
         <state relative-caret-position="321">
           <caret line="45" column="5" lean-forward="false" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
           <folding>
-            <element signature="e#11476#11485#0" expanded="true" />
+            <element signature="e#11566#11575#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -702,8 +726,12 @@
         <state relative-caret-position="197">
           <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
           <folding>
-            <element signature="e#2496#2497#0" expanded="true" />
-            <element signature="e#2532#2533#0" expanded="true" />
+            <element signature="e#2571#2572#0" expanded="true" />
+            <element signature="e#2607#2608#0" expanded="true" />
+            <element signature="e#4415#4416#0" expanded="true" />
+            <element signature="e#4442#4443#0" expanded="true" />
+            <element signature="e#4480#4481#0" expanded="true" />
+            <element signature="e#4512#4513#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -712,6 +740,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
           <caret line="28" column="17" lean-forward="false" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -720,8 +749,12 @@
         <state relative-caret-position="468">
           <caret line="27" column="62" lean-forward="false" selection-start-line="27" selection-start-column="62" selection-end-line="27" selection-end-column="62" />
           <folding>
-            <element signature="e#2496#2497#0" expanded="true" />
-            <element signature="e#2532#2533#0" expanded="true" />
+            <element signature="e#2571#2572#0" expanded="true" />
+            <element signature="e#2607#2608#0" expanded="true" />
+            <element signature="e#4415#4416#0" expanded="true" />
+            <element signature="e#4442#4443#0" expanded="true" />
+            <element signature="e#4480#4481#0" expanded="true" />
+            <element signature="e#4512#4513#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -737,6 +770,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="828">
           <caret line="52" column="25" lean-forward="false" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -752,7 +786,7 @@
         <state relative-caret-position="396">
           <caret line="31" column="66" lean-forward="false" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
           <folding>
-            <element signature="e#11476#11485#0" expanded="true" />
+            <element signature="e#11566#11575#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -762,8 +796,12 @@
         <state relative-caret-position="468">
           <caret line="27" column="62" lean-forward="false" selection-start-line="27" selection-start-column="62" selection-end-line="27" selection-end-column="62" />
           <folding>
-            <element signature="e#2496#2497#0" expanded="true" />
-            <element signature="e#2532#2533#0" expanded="true" />
+            <element signature="e#2571#2572#0" expanded="true" />
+            <element signature="e#2607#2608#0" expanded="true" />
+            <element signature="e#4415#4416#0" expanded="true" />
+            <element signature="e#4442#4443#0" expanded="true" />
+            <element signature="e#4480#4481#0" expanded="true" />
+            <element signature="e#4512#4513#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -772,6 +810,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="828">
           <caret line="52" column="25" lean-forward="false" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -947,6 +986,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
           <caret line="41" column="266" lean-forward="false" selection-start-line="41" selection-start-column="266" selection-end-line="41" selection-end-column="266" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -954,6 +994,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="26" column="99" lean-forward="false" selection-start-line="26" selection-start-column="99" selection-end-line="26" selection-end-column="99" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -985,13 +1026,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/model/Shop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/ProductController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1000,17 +1034,6 @@
             <element signature="e#1966#1967#0" expanded="true" />
             <element signature="e#2021#2022#0" expanded="true" />
             <marker date="1561121166734" expanded="true" signature="3193:3198" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/model/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="e#2496#2497#0" expanded="true" />
-            <element signature="e#2532#2533#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1025,13 +1048,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/model/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="32" column="20" lean-forward="false" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+          <folding>
+            <element signature="e#2571#2572#0" expanded="true" />
+            <element signature="e#2607#2608#0" expanded="true" />
+            <element signature="e#4415#4416#0" expanded="true" />
+            <element signature="e#4442#4443#0" expanded="true" />
+            <element signature="e#4480#4481#0" expanded="true" />
+            <element signature="e#4512#4513#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="91" column="122" lean-forward="false" selection-start-line="91" selection-start-column="122" selection-end-line="91" selection-end-column="122" />
+        <state relative-caret-position="450">
+          <caret line="91" column="172" lean-forward="false" selection-start-line="91" selection-start-column="172" selection-end-line="91" selection-end-column="172" />
           <folding>
-            <element signature="e#11476#11485#0" expanded="true" />
+            <element signature="e#11566#11575#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/model/Shop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="27" column="22" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>

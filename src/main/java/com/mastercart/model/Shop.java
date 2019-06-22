@@ -1,5 +1,7 @@
 package com.mastercart.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +25,7 @@ public class Shop {
     private double rating;
     private int numberOfRatings;
     @OneToMany
+    @JsonBackReference
     private List<Product> products;
     @OneToOne
     private User seller;

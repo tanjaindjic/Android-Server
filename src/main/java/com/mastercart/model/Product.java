@@ -29,8 +29,10 @@ public class Product {
     @OneToMany
     @JsonBackReference
     private List<Order> orders;
+    @ManyToOne
+    private Shop shop;
 
-    public Product(String name, byte[] imageResource, double price, String description, int onStock, String size, int discount, boolean active, double rating, int numberOfRatings, List<Comment> comments, Category category, List<Order> orders) {
+    public Product(String name, byte[] imageResource, double price, String description, int onStock, String size, int discount, boolean active, double rating, int numberOfRatings, List<Comment> comments, Category category, List<Order> orders, Shop shop) {
         this.name = name;
         this.imageResource = imageResource;
         this.price = price;
@@ -44,6 +46,7 @@ public class Product {
         this.comments = comments;
         this.category = category;
         this.orders = orders;
+        this.shop = shop;
     }
 
     public Product() {  }
@@ -172,5 +175,13 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 }
