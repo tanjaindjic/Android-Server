@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bf0fc773-631e-4198-9c81-5c762a62cfd6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercart/controller/ShopController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/controller/ShopController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/StartData.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/StartData.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/controller/ProductController.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/controller/ProductController.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/mastercart/controller/ShopController.class" afterPath="$PROJECT_DIR$/target/classes/com/mastercart/controller/ShopController.class" />
@@ -34,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShopController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShopController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/ShopController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="51" column="43" lean-forward="false" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
+            <state relative-caret-position="303">
+              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,12 +59,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StartData.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StartData.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="170" column="33" lean-forward="false" selection-start-line="170" selection-start-column="33" selection-end-line="170" selection-end-column="33" />
-              <folding />
+            <state relative-caret-position="828">
+              <caret line="91" column="122" lean-forward="false" selection-start-line="91" selection-start-column="122" selection-end-line="91" selection-end-column="122" />
+              <folding>
+                <element signature="e#11476#11485#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -117,8 +119,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/service/ShopSevice.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/repository/ShopRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/controller/ProductController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/controller/ShopController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java" />
       </list>
     </option>
   </component>
@@ -563,7 +565,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561124922438</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="dodata metoda za getovanje prodavnice svakog prodavca">
+      <created>1561185049631</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1561185049631</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -578,7 +587,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42718446" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3387271" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -619,7 +628,8 @@
     <MESSAGE value="dodate slike" />
     <MESSAGE value="dodate slike za prodavnice" />
     <MESSAGE value="izmena modela, dodati selleri u prodavnice" />
-    <option name="LAST_COMMIT_MESSAGE" value="izmena modela, dodati selleri u prodavnice" />
+    <MESSAGE value="dodata metoda za getovanje prodavnice svakog prodavca" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodata metoda za getovanje prodavnice svakog prodavca" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -660,7 +670,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
           <caret line="45" column="5" lean-forward="false" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#11476#11485#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -739,7 +751,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="31" column="66" lean-forward="false" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
-          <folding />
+          <folding>
+            <element signature="e#11476#11485#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -978,14 +992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="170" column="33" lean-forward="false" selection-start-line="170" selection-start-column="33" selection-end-line="170" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/ProductController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1011,10 +1017,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/ShopController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="51" column="43" lean-forward="false" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
+        <state relative-caret-position="303">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="91" column="122" lean-forward="false" selection-start-line="91" selection-start-column="122" selection-end-line="91" selection-end-column="122" />
+          <folding>
+            <element signature="e#11476#11485#0" expanded="true" />
           </folding>
         </state>
       </provider>
