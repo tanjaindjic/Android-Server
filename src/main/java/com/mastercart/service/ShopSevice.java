@@ -39,8 +39,8 @@ public class ShopSevice {
 		newShop.setName(shop.getName());
 		newShop.setEmail(shop.getEmail());
 		newShop.setLocation(shop.getLocation());
-		newShop.setLat(Double.parseDouble(shop.getLat()));
-		newShop.setLng(Double.parseDouble(shop.getLng()));
+		newShop.setLat(Float.parseFloat(shop.getLat()));
+		newShop.setLng(Float.parseFloat(shop.getLng()));
 		newShop.setPhone(shop.getPhone());
 		byte[] data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/charger.jpg").toURI()));
 		data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/shop1.png").toURI()));
@@ -59,9 +59,9 @@ public class ShopSevice {
     	if(shop.getLocation()!="")
     		editShop.setLocation(shop.getLocation());
     	if(shop.getLat()!="")	
-	    	editShop.setLat(Double.parseDouble(shop.getLat()));
+	    	editShop.setLat(Float.parseFloat(shop.getLat()));
     	if(shop.getLng()!="")
-        	editShop.setLng(Double.parseDouble(shop.getLng()));
+        	editShop.setLng(Float.parseFloat(shop.getLng()));
     	if(shop.getPhone()!="")
     		editShop.setPhone(shop.getPhone());
     	

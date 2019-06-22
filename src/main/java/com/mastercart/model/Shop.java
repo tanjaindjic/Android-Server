@@ -2,7 +2,6 @@ package com.mastercart.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -17,8 +16,8 @@ public class Shop {
     @Column(columnDefinition="BLOB")
     private byte[] imageResource;
     private String location;
-    public double lat;
-    public double lng;
+    public float lat;
+    public float lng;
     private String phone;
     private String email;
     private boolean active;
@@ -35,7 +34,7 @@ public class Shop {
     public Shop() {
     }
 
-    public Shop(String name, byte[] imageResource, String location, double lat, double lng, String phone, String email, boolean active, double rating, int numberOfRatings, List<Product> products, User seller, List<Comment> comments) {
+    public Shop(String name, byte[] imageResource, String location, float lat, float lng, String phone, String email, boolean active, double rating, int numberOfRatings, List<Product> products, User seller, List<Comment> comments) {
 
         this.name = name;
         this.imageResource = imageResource;
@@ -104,19 +103,19 @@ public class Shop {
         this.location = location;
     }
 
-    public double getLat() {
+    public float getLat() {
         return lat;
     }
 
-    public void setLat(double lat) {
+    public void setLat(float lat) {
         this.lat = lat;
     }
 
-    public double getLng() {
+    public float getLng() {
         return lng;
     }
 
-    public void setLng(double lng) {
+    public void setLng(float lng) {
         this.lng = lng;
     }
 

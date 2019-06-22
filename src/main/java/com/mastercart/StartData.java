@@ -59,15 +59,15 @@ public class StartData {
 
     @PostConstruct
     public void init() throws URISyntaxException, IOException {
-        Shop s1 = new Shop("Mega", new byte[0], "Pavla Papa 2-8", 45.254618, 19.841091, "+3815565648", "test@mail.com", true, 3.5, 7, new ArrayList<>(), null, new ArrayList<>());
+        Shop s1 = new Shop("Mega", new byte[0], "Pavla Papa 2-8", 45.254618F, 19.841091F, "+3815565648", "test@mail.com", true, 3.5, 7, new ArrayList<>(), null, new ArrayList<>());
         shopRepository.save(s1);
-        Shop s2 = new Shop("Phone Shop", new byte[0], "Bulevar Mihajla Pupina 2", 45.253498, 19.842284, "+3815565648", "test@mail.com", true, 4.5, 7, new ArrayList<>(), null, new ArrayList<>());
+        Shop s2 = new Shop("Phone Shop", new byte[0], "Bulevar Mihajla Pupina 2", 45.253498F, 19.842284F, "+3815565648", "test@mail.com", true, 4.5, 7, new ArrayList<>(), null, new ArrayList<>());
         shopRepository.save(s2);
-        Shop s3 = new Shop("Hallo Shop", new byte[0], "Njegoševa 15", 45.256997, 19.842196, "+3815565648", "test@mail.com", true, 2.5, 7, new ArrayList<>(), null, new ArrayList<>());
+        Shop s3 = new Shop("Hallo Shop", new byte[0], "Njegoševa 15", 45.256997F, 19.842196F, "+3815565648", "test@mail.com", true, 2.5, 7, new ArrayList<>(), null, new ArrayList<>());
         shopRepository.save(s3);
-        Shop s4 = new Shop("4Cells", new byte[0], "Futoška 12", 45.250917, 19.835194, "+3815565648", "test@mail.com", true, 5, 7, new ArrayList<>(), null, new ArrayList<>());
+        Shop s4 = new Shop("4Cells", new byte[0], "Futoška 12", 45.250917F, 19.835194F, "+3815565648", "test@mail.com", true, 5, 7, new ArrayList<>(), null, new ArrayList<>());
         shopRepository.save(s4);
-        Shop s5 = new Shop("Mr. Mobile", new byte[0], "Masarikova 4", 45.257199, 19.841224, "+3815565648", "test@mail.com", true, 5, 7, new ArrayList<>(), null, new ArrayList<>());
+        Shop s5 = new Shop("Mr. Mobile", new byte[0], "Masarikova 4", 45.257199F, 19.841224F, "+3815565648", "test@mail.com", true, 5, 7, new ArrayList<>(), null, new ArrayList<>());
         shopRepository.save(s5);
 
         Category c0 = categoryRepository.save(new Category("All"));
