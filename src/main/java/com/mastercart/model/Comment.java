@@ -19,18 +19,22 @@ public class Comment {
     private String user;
     private String comment;
     private Date time;
-    private double review;
+    private double shopRating;
+    private double productRating;
+    private Long orderId;
 
     public Comment() {
     }
 
-    public Comment(Shop forShop, Product forProduct, String user, String comment, Date time, double review) {
+    public Comment(Shop forShop, Product forProduct, String user, String comment, Date time, double shopRating, double productReview, Long orderId) {
         this.forShop = forShop;
         this.forProduct = forProduct;
         this.user = user;
         this.comment = comment;
         this.time = time;
-        this.review = review;
+        this.shopRating = shopRating;
+        this.productRating = productReview;
+        this.orderId = orderId;
     }
 
     public Long getId() {
@@ -41,7 +45,7 @@ public class Comment {
         this.id = id;
     }
 
-    public Object getForShop() {
+    public Shop getForShop() {
         return forShop;
     }
 
@@ -73,12 +77,12 @@ public class Comment {
         this.time = time;
     }
 
-    public double getReview() {
-        return review;
+    public double getShopRating() {
+        return shopRating;
     }
 
-    public void setReview(double review) {
-        this.review = review;
+    public void setShopRating(double shopRating) {
+        this.shopRating = shopRating;
     }
 
     public Product getForProduct() {
@@ -87,5 +91,21 @@ public class Comment {
 
     public void setForProduct(Product forProduct) {
         this.forProduct = forProduct;
+    }
+
+    public double getProductRating() {
+        return productRating;
+    }
+
+    public void setProductRating(double productRating) {
+        this.productRating = productRating;
+    }
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 }

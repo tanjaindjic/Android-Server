@@ -50,7 +50,7 @@ public class CommentService {
 	    if(commentDTO.getAuthor().isEmpty()) {
 	    	commentDTO.setAuthor(user.getFirstName()+" "+user.getLastName());
 	    }
-		Comment comment = new Comment(shop, product, commentDTO.getAuthor(), commentDTO.getText(), date, commentDTO.getReviev());
+		Comment comment = new Comment(shop, product, commentDTO.getAuthor(), commentDTO.getText(), date, commentDTO.getReviev(), commentDTO.getReviev(), 0L);
 		comment = commentRepository.save(comment);
 		if(shop!=null) {
 			shop.getComments().add(comment);
@@ -61,5 +61,30 @@ public class CommentService {
 			productSevice.update(product);
 		}
 		return comment;
+	}
+
+	public double calculateProductRating(Product p, Comment comment) {
+    	double rating = 0;
+    	for(Comment c : p.getComments()){
+    		if(c.getForProduct()!=null && c.getForShop()!=null){
+    			//onda je review, ako je nesto od toga null onda je obican komentar
+				rating += c.getProductRating();
+			}
+		}
+		rating = rating/(p.getNumberOfRatings()+1);
+    	return rating;
+	}
+
+	public double calculateShopRating(Shop s, Comment comment) {
+		double rating = 0;
+		for(Comment c : s.getComments()){
+			if(c.getForProduct()!=null && c.getForShop()!=null){
+				//onda je review, ako je nesto od toga null onda je obican komentar
+				rating += c.getShopRating();
+			}
+		}
+		rating = rating/(s.getNumberOfRatings()+1);
+		return rating;
+
 	}
 }

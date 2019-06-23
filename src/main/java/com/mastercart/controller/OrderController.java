@@ -4,11 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.mastercart.model.Category;
 import com.mastercart.model.Order;
@@ -18,6 +14,8 @@ import com.mastercart.model.enums.Role;
 import com.mastercart.security.TokenUtils;
 import com.mastercart.service.OrderSevice;
 import com.mastercart.service.UserService;
+
+import java.util.List;
 
 @RestController
 public class OrderController {
@@ -44,6 +42,13 @@ public class OrderController {
     	Order order = orderSevice.addOrder(cartItemDTO, user);
     	return new ResponseEntity<Order>(order, HttpStatus.OK);
     }
+
+    @GetMapping(value = "orders", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Order[]> getOrders(){
+		List<Order> orders = orderSevice.getAllOrders();
+		return new ResponseEntity<Order[]>(orders.toArray(new Order[orders.size()]), HttpStatus.OK);
+	}
+
 	
 
 }

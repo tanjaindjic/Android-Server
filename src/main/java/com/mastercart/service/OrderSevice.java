@@ -2,6 +2,7 @@ package com.mastercart.service;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,7 @@ public class OrderSevice {
 	@Autowired
     private UserRepository userRepository;
 
-	public Order getProductById(Long id) {
+	public Order getOrderById(Long id) {
         return orderRepository.findById(id).get();
 	}
 
@@ -46,5 +47,13 @@ public class OrderSevice {
 		user.getOrders().add(order);
 		userRepository.save(user);
 		return order;
+	}
+
+	public void save(Order o) {
+		orderRepository.save(o);
+	}
+
+	public List<Order> getAllOrders() {
+		return orderRepository.findAll();
 	}
 }
