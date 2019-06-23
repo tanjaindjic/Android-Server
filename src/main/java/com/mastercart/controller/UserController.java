@@ -1,6 +1,6 @@
 package com.mastercart.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -140,4 +140,10 @@ public class UserController {
     	retVal = userService.findFavsIds(user, id);
     	return new ResponseEntity<Boolean>(retVal, HttpStatus.OK);
     }
+	
+
+	@RequestMapping(value = "usersForWallet", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<User>> getUsers(){
+		return new ResponseEntity<List<User>>(userService.getAllForWallet(), HttpStatus.OK);
+	}
 }

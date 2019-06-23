@@ -1,6 +1,7 @@
 package com.mastercart.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -80,6 +81,16 @@ public class UserService {
 				return true;
 		}
 		return false;
+	}
+	
+	public List<User> getAllForWallet() {
+		List<User> users = userRepository.findAll();
+		List<User> usersForWallet = new ArrayList<User>();
+		for(int i = 0; i < users.size();i++) {
+			if(users.get(i).getRole().equals(Role.KUPAC) && users.get(i).getWallet()==null)
+				usersForWallet.add(users.get(i));
+		}
+		return usersForWallet;
 	}
 
 }
