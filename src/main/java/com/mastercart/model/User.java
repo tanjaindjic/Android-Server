@@ -2,13 +2,9 @@ package com.mastercart.model;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mastercart.model.enums.Role;
 
 @Entity
@@ -32,6 +28,7 @@ public class User {
     @OneToMany
     private List<CartItem> cartItems;
     @OneToMany
+    @JsonBackReference
     private List<Order> orders;
     @OneToMany
     private List<Conversation> conversations;

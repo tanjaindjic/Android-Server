@@ -53,7 +53,7 @@ public class OrderSevice {
 		orderRepository.save(o);
 	}
 
-	public List<Order> getAllOrders() {
-		return orderRepository.findAll();
+	public List<Order> getAllOrders(Long id) {
+		return orderRepository.findByBuyerId(id);
 	}
 }

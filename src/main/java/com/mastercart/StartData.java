@@ -59,15 +59,15 @@ public class StartData {
 
     @PostConstruct
     public void init() throws URISyntaxException, IOException {
-        Shop s1 = new Shop("Mega", new byte[0], "Pavla Papa 2-8", 45.254618F, 19.841091F, "+3815565648", "test@mail.com", true, 3.5, 7, new ArrayList<>(), null, new ArrayList<>());
+        Shop s1 = new Shop("Mega", new byte[0], "Pavla Papa 2-8", 45.254618F, 19.841091F, "+3815565648", "test@mail.com", true, 0, 0, new ArrayList<>(), null, new ArrayList<>());
         shopRepository.save(s1);
-        Shop s2 = new Shop("Phone Shop", new byte[0], "Bulevar Mihajla Pupina 2", 45.253498F, 19.842284F, "+3815565648", "test@mail.com", true, 4.5, 7, new ArrayList<>(), null, new ArrayList<>());
+        Shop s2 = new Shop("Phone Shop", new byte[0], "Bulevar Mihajla Pupina 2", 45.253498F, 19.842284F, "+3815565648", "test@mail.com", true, 0, 0, new ArrayList<>(), null, new ArrayList<>());
         shopRepository.save(s2);
-        Shop s3 = new Shop("Hallo Shop", new byte[0], "Njegoševa 15", 45.256997F, 19.842196F, "+3815565648", "test@mail.com", true, 2.5, 7, new ArrayList<>(), null, new ArrayList<>());
+        Shop s3 = new Shop("Hallo Shop", new byte[0], "Njegoševa 15", 45.256997F, 19.842196F, "+3815565648", "test@mail.com", true, 0, 0, new ArrayList<>(), null, new ArrayList<>());
         shopRepository.save(s3);
-        Shop s4 = new Shop("4Cells", new byte[0], "Futoška 12", 45.250917F, 19.835194F, "+3815565648", "test@mail.com", true, 5, 7, new ArrayList<>(), null, new ArrayList<>());
+        Shop s4 = new Shop("4Cells", new byte[0], "Futoška 12", 45.250917F, 19.835194F, "+3815565648", "test@mail.com", true, 0, 0, new ArrayList<>(), null, new ArrayList<>());
         shopRepository.save(s4);
-        Shop s5 = new Shop("Mr. Mobile", new byte[0], "Masarikova 4", 45.257199F, 19.841224F, "+3815565648", "test@mail.com", true, 5, 7, new ArrayList<>(), null, new ArrayList<>());
+        Shop s5 = new Shop("Mr. Mobile", new byte[0], "Masarikova 4", 45.257199F, 19.841224F, "+3815565648", "test@mail.com", true, 0, 0, new ArrayList<>(), null, new ArrayList<>());
         shopRepository.save(s5);
 
         Category c0 = categoryRepository.save(new Category("All"));
@@ -77,19 +77,19 @@ public class StartData {
         Category c4 = categoryRepository.save(new Category("Speakers"));
         Category c5 = categoryRepository.save(new Category("Protection"));
 
-        Product p1 = new Product("Android Charger", new byte[0], 100.0, "Super quality mobile charger!", 12, "20x50cm", 0, true, 4.5, 12, new ArrayList<>(), c1, new ArrayList<>(), s1);
+        Product p1 = new Product("Android Charger", new byte[0], 100.0, "Super quality mobile charger!", 12, "20x50cm", 0, true, 0, 0, new ArrayList<>(), c1, new ArrayList<>(), s1);
         p1 = productRepository.save(p1);
-        Product p2 = new Product("JBL Speakers", new byte[0], 450.0, "Amazing JBL speakers!", 12, "20x50cm", 0, true, 2.5, 12, new ArrayList<>(), c4, new ArrayList<>(), s1);
+        Product p2 = new Product("JBL Speakers", new byte[0], 450.0, "Amazing JBL speakers!", 12, "20x50cm", 0, true, 0, 0, new ArrayList<>(), c4, new ArrayList<>(), s1);
         p2 = productRepository.save(p2);
-        Product p3 = new Product("Phone Case", new byte[0], 10.0, "Protect your screen now!", 12, "20x50cm", 0, true, 3.5, 12, new ArrayList<>(), c5, new ArrayList<>(), s1);
+        Product p3 = new Product("Phone Case", new byte[0], 10.0, "Protect your screen now!", 12, "20x50cm", 0, true, 0, 0, new ArrayList<>(), c5, new ArrayList<>(), s1);
         p3 = productRepository.save(p3);
-        Product p4 = new Product("Screen Protection", new byte[0], 130.0, "Protect your mobile device!", 12, "20x50cm", 0, true, 5, 12, new ArrayList<>(), c5, new ArrayList<>(), s1);
+        Product p4 = new Product("Screen Protection", new byte[0], 130.0, "Protect your mobile device!", 12, "20x50cm", 0, true, 0, 0, new ArrayList<>(), c5, new ArrayList<>(), s1);
         p4 = productRepository.save(p4);
-        Product p5 = new Product("Earphones", new byte[0], 70.0, "High quality sound!", 12, "20x50cm", 0, true, 4, 12, new ArrayList<>(), c5, new ArrayList<>(), s1);
+        Product p5 = new Product("Earphones", new byte[0], 70.0, "High quality sound!", 12, "20x50cm", 0, true, 0, 0, new ArrayList<>(), c5, new ArrayList<>(), s1);
         p5 = productRepository.save(p5);
-        Product p6 = new Product("USB cable", new byte[0], 20.0, "Works with any Android phonw!", 12, "20x50cm", 0, true, 4.5, 12, new ArrayList<>(), c5, new ArrayList<>(), s2);
+        Product p6 = new Product("USB cable", new byte[0], 20.0, "Works with any Android phonw!", 12, "20x50cm", 0, true, 0, 0, new ArrayList<>(), c5, new ArrayList<>(), s2);
         p6 = productRepository.save(p6);
-        Product p7 = new Product("Phone Mask", new byte[0], 60.0, "Protect your mobile device!", 12, "20x50cm", 0, true, 3, 12, new ArrayList<>(), c5, new ArrayList<>(), s2);
+        Product p7 = new Product("Phone Mask", new byte[0], 60.0, "Protect your mobile device!", 12, "20x50cm", 0, true, 0, 0, new ArrayList<>(), c5, new ArrayList<>(), s2);
         p7 = productRepository.save(p7);
 
         byte[] data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/charger.jpg").toURI()));
@@ -141,12 +141,15 @@ public class StartData {
         s1.getComments().add(com1);
         s1.getComments().add(com2);
         s1.getComments().add(com3);
+        s1 = commentService.evaluateShopRating(s1);
         s1 = shopRepository.save(s1);
         p1.getComments().add(com4);
         p1.getComments().add(com5);
         p1.getComments().add(com6);
+        p1 = commentService.evaluateProductRating(p1);
         p1 = productRepository.save(p1);
         p2.getComments().add(com7);
+        p2 = commentService.evaluateProductRating(p2);
         p2 = productRepository.save(p2);
         
         Payment py = new Payment();
@@ -217,6 +220,10 @@ public class StartData {
         orders.add(o2);
         buyer1.setOrders(orders);
         buyer1 = userRepository.save(buyer1);
+        p1.getOrders().add(o1);
+        productRepository.save(p1);
+        p2.getOrders().add(o2);
+        productRepository.save(p2);
     }
 
 

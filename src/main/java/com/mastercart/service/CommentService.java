@@ -87,4 +87,34 @@ public class CommentService {
 		return rating;
 
 	}
+
+	public Shop evaluateShopRating(Shop s){
+		double rating = 0;
+		int total = 0;
+		for(Comment c : s.getComments()){
+			if (c.getForShop()!=null){
+				rating += c.getShopRating();
+				total += 1;
+			}
+		}
+		s.setRating(rating/total);
+		s.setNumberOfRatings(total);
+		return s;
+
+	}
+
+	public Product evaluateProductRating(Product s){
+		double rating = 0;
+		int total = 0;
+		for(Comment c : s.getComments()){
+			if(c.getForProduct()!=null){
+				rating += c.getProductRating();
+				total += 1;
+			}
+		}
+		s.setRating(rating/total);
+		s.setNumberOfRatings(total);
+		return s;
+
+	}
 }

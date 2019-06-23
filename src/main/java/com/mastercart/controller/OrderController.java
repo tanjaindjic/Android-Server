@@ -43,9 +43,9 @@ public class OrderController {
     	return new ResponseEntity<Order>(order, HttpStatus.OK);
     }
 
-    @GetMapping(value = "orders", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Order[]> getOrders(){
-		List<Order> orders = orderSevice.getAllOrders();
+    @GetMapping(value = "orders/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Order[]> getOrders(@PathVariable Long id){
+		List<Order> orders = orderSevice.getAllOrders(id);
 		return new ResponseEntity<Order[]>(orders.toArray(new Order[orders.size()]), HttpStatus.OK);
 	}
 
