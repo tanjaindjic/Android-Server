@@ -49,6 +49,26 @@ public class OrderController {
 		return new ResponseEntity<Order[]>(orders.toArray(new Order[orders.size()]), HttpStatus.OK);
 	}
 
+	@RequestMapping(value = "order/submitAll", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Order> addOrderSubmitAll(@RequestHeader(value="Authorization") List<String> Authorization, @RequestBody List<CartItemDTO> cartItemDTO){
+		StringBuilder sb = new StringBuilder();
+		for (String s : Authorization)
+		{
+		    sb.append(s);
+		}
+		String email = tokenUtils.getUsernameFromToken(sb.toString());
+	    if(email==null || email.isEmpty()) {
+	    	System.out.println("Pokusaj neautorizovanog dodavanja kategorije");	    	
+	    	return new ResponseEntity<>(null, HttpStatus.OK);
+	    }
+	    User user = userService.getUserByEmail(email);	    
+	    if(user == null) {
+	    	return new ResponseEntity<>(null, HttpStatus.OK);
+	    }
+    	System.out.println("dodavanje narudzbine");
+    	Order order = orderSevice.addOrderSubmitAll(cartItemDTO,user);
+    	return new ResponseEntity<Order>(order, HttpStatus.OK);
+    }
 	
 
 }
