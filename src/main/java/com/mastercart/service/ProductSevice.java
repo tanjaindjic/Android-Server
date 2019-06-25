@@ -37,8 +37,7 @@ public class ProductSevice {
     	newProduct.setPrice(Double.parseDouble(product.getPrice()));
     	newProduct.setSize(product.getSize());
     	newProduct.setOnStock(Integer.parseInt(product.getOnStock()));
-    	byte[] data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/charger.jpg").toURI()));
-        newProduct.setImageResource(data);
+    	newProduct = productRepository.save(newProduct);
     	return newProduct;
     }
 

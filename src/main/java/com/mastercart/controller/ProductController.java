@@ -65,6 +65,7 @@ public class ProductController {
     	productSevice.update(pr);
     	shop.getProducts().add(pr);
     	shopService.save(shop);
+    	product.setId(String.valueOf(pr.getId()));
     	return new ResponseEntity<ProductDTO>(product, HttpStatus.OK);
        }
     

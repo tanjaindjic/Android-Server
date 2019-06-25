@@ -1,5 +1,7 @@
 package com.mastercart.controller;
 
+import com.mastercart.model.Shop;
+import com.mastercart.service.ShopSevice;
 import com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException;
 import com.sun.org.apache.xml.internal.security.utils.Base64;
 import org.springframework.util.*;
@@ -23,6 +25,7 @@ import com.mastercart.service.UserService;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 public class UploadController {
@@ -34,7 +37,9 @@ public class UploadController {
 	private TokenUtils tokenUtils;
 	@Autowired
 	private UserService userService;
-	
+	@Autowired
+	private ShopSevice shopSevice;
+
 	@RequestMapping(value = "upload", method = RequestMethod.POST, consumes = MediaType.TEXT_PLAIN_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
     public ResponseEntity<String> uploadImage(@RequestHeader(value="Authorization") String Authorization, @RequestBody String file) throws IOException, Base64DecodingException {
     	String email = tokenUtils.getUsernameFromToken(Authorization);
@@ -54,5 +59,16 @@ public class UploadController {
 	    userService.update(user);
     	return new ResponseEntity<String>("done", HttpStatus.OK);
     }
+
+	@RequestMapping(value = "uploadShop", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
+	public ResponseEntity<String> uploadShopImage( @RequestBody List<String> file) throws IOException, Base64DecodingException {
+
+		Shop s = shopSevice.getShopById(Long.parseLong(file.get(1)));
+		if(s!=null) {
+			s.setImageResource(Base64.decode(new String(file.get(0)).getBytes("UTF-8")));
+			shopSevice.save(s);
+			return new ResponseEntity<String>("done", HttpStatus.OK);
+		}else return new ResponseEntity<String>("not done", HttpStatus.BAD_REQUEST);
+	}
 	
 }

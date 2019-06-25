@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf0fc773-631e-4198-9c81-5c762a62cfd6" name="Default" comment="sredjeni reviews i orders">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_4.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" />
+    <list default="true" id="bf0fc773-631e-4198-9c81-5c762a62cfd6" name="Default" comment="srejen upload">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/spring-boot-rest.iml" afterPath="$PROJECT_DIR$/spring-boot-rest.iml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercart/controller/ProductController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/controller/ProductController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercart/controller/ShopController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/controller/ShopController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercart/controller/UploadController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/controller/UploadController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercart/model/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/model/User.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercart/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/service/UserService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercart/service/ProductSevice.java" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/service/ProductSevice.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercart/service/ShopSevice.java" afterPath="$PROJECT_DIR$/src/main/java/com/mastercart/service/ShopSevice.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,6 +19,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="ProductController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/ProductController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="67" column="47" lean-forward="false" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
+              <folding>
+                <marker date="1561472008593" expanded="true" signature="3241:3246" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductSevice.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/service/ProductSevice.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="39" column="56" lean-forward="false" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Shop.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/model/Shop.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -33,21 +51,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StartData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java">
+      <file leaf-file-name="ShopController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/ShopController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="209" column="136" lean-forward="false" selection-start-line="209" selection-start-column="136" selection-end-line="209" selection-end-column="136" />
+            <state relative-caret-position="468">
+              <caret line="69" column="45" lean-forward="false" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UploadController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShopSevice.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/service/ShopSevice.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="44" column="18" lean-forward="false" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+              <folding>
+                <element signature="e#2616#2617#0" expanded="true" />
+                <element signature="e#2669#2670#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UploadController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/UploadController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="52" column="60" lean-forward="false" selection-start-line="52" selection-start-column="60" selection-end-line="52" selection-end-column="60" />
+            <state relative-caret-position="264">
+              <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,10 +96,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/model/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-440">
+            <state relative-caret-position="316">
               <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
               <folding />
             </state>
@@ -117,14 +148,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/model/Conversation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/model/Message.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/repository/CategoryRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mastercart/service/ProductSevice.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/repository/CommentRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/repository/ShopRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mastercart/controller/ProductController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mastercart/controller/ShopController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/model/Shop.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mastercart/service/ShopSevice.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/model/enums/OrderStatus.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/model/Comment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/service/CommentService.java" />
@@ -140,7 +167,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/StartData.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/model/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mastercart/service/ShopSevice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mastercart/service/ProductSevice.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mastercart/controller/UploadController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mastercart/controller/ShopController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mastercart/controller/ProductController.java" />
       </list>
     </option>
   </component>
@@ -628,7 +659,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561309827151</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="srejen upload">
+      <created>1561467131585</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1561467131585</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -718,7 +756,8 @@
     <MESSAGE value="sredjen prpikaz na mapi" />
     <MESSAGE value="dodavanje ratinga" />
     <MESSAGE value="sredjeni reviews i orders" />
-    <option name="LAST_COMMIT_MESSAGE" value="sredjeni reviews i orders" />
+    <MESSAGE value="srejen upload" />
+    <option name="LAST_COMMIT_MESSAGE" value="srejen upload" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -731,20 +770,20 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/UploadController.java</url>
-          <line>39</line>
+          <line>44</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/UploadController.java</url>
-          <line>38</line>
+          <line>43</line>
           <properties class="com.mastercart.controller.UploadController" method="uploadImage">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -931,41 +970,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/service/ProductSevice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/repository/ShopRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/ShopController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/service/ShopSevice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="46" column="6" lean-forward="false" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
-          <folding>
-            <element signature="e#2880#2881#0" expanded="false" />
-            <element signature="e#2933#2934#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/model/enums/OrderStatus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -1031,16 +1035,6 @@
         <state relative-caret-position="0">
           <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/ProductController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1098">
-          <caret line="85" column="70" lean-forward="false" selection-start-line="85" selection-start-column="70" selection-end-line="85" selection-end-column="70" />
-          <folding>
-            <marker date="1561121166734" expanded="true" signature="3193:3198" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1124,21 +1118,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/model/User.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/repository/ShopRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-440">
-          <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+        <state relative-caret-position="90">
+          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/service/ShopSevice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="44" column="18" lean-forward="false" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+          <folding>
+            <element signature="e#2616#2617#0" expanded="true" />
+            <element signature="e#2669#2670#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/service/ProductSevice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="39" column="56" lean-forward="false" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/UploadController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="52" column="60" lean-forward="false" selection-start-line="52" selection-start-column="60" selection-end-line="52" selection-end-column="60" />
+        <state relative-caret-position="264">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/ShopController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="69" column="45" lean-forward="false" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/controller/ProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="67" column="47" lean-forward="false" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
+          <folding>
+            <marker date="1561472008593" expanded="true" signature="3241:3246" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercart/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>

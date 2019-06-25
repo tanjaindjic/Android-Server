@@ -42,10 +42,7 @@ public class ShopSevice {
 		newShop.setLat(Float.parseFloat(shop.getLat()));
 		newShop.setLng(Float.parseFloat(shop.getLng()));
 		newShop.setPhone(shop.getPhone());
-		byte[] data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/charger.jpg").toURI()));
-		data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/shop1.png").toURI()));
-      
-		newShop.setImageResource(data);
+		newShop = shopRepository.save(newShop);
 		
 		return newShop;
 	}

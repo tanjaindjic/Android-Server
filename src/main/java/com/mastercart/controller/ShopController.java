@@ -67,6 +67,7 @@ public class ShopController {
        	userService.update(us);
        	s.setSeller(us);
        	shopService.save(s);
+       	shop.setId(String.valueOf(s.getId()));
        	return new ResponseEntity<ShopDTO>(shop, HttpStatus.OK);
        	
        }
