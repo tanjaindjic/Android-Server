@@ -1,6 +1,8 @@
 package com.mastercart.controller;
 
+import com.mastercart.model.Product;
 import com.mastercart.model.Shop;
+import com.mastercart.service.ProductSevice;
 import com.mastercart.service.ShopSevice;
 import com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException;
 import com.sun.org.apache.xml.internal.security.utils.Base64;
@@ -39,6 +41,8 @@ public class UploadController {
 	private UserService userService;
 	@Autowired
 	private ShopSevice shopSevice;
+	@Autowired
+	private ProductSevice productSevice;
 
 	@RequestMapping(value = "upload", method = RequestMethod.POST, consumes = MediaType.TEXT_PLAIN_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
     public ResponseEntity<String> uploadImage(@RequestHeader(value="Authorization") String Authorization, @RequestBody String file) throws IOException, Base64DecodingException {
@@ -67,6 +71,17 @@ public class UploadController {
 		if(s!=null) {
 			s.setImageResource(Base64.decode(new String(file.get(0)).getBytes("UTF-8")));
 			shopSevice.save(s);
+			return new ResponseEntity<String>("done", HttpStatus.OK);
+		}else return new ResponseEntity<String>("not done", HttpStatus.BAD_REQUEST);
+	}
+
+	@RequestMapping(value = "uploadProduct", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
+	public ResponseEntity<String> uploadShopProduct( @RequestBody List<String> file) throws IOException, Base64DecodingException {
+
+		Product s = productSevice.getProductById(Long.parseLong(file.get(1)));
+		if(s!=null) {
+			s.setImageResource(Base64.decode(new String(file.get(0)).getBytes("UTF-8")));
+			productSevice.update(s);
 			return new ResponseEntity<String>("done", HttpStatus.OK);
 		}else return new ResponseEntity<String>("not done", HttpStatus.BAD_REQUEST);
 	}
