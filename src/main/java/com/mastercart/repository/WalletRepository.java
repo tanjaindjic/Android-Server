@@ -6,4 +6,5 @@ import com.mastercart.model.Wallet;
 
 public interface WalletRepository extends JpaRepository<Wallet, Long>  {
 
+	Wallet findByUserEmail(String email);
 }

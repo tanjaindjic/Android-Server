@@ -23,19 +23,17 @@ import com.mastercart.service.WalletService;
 public class WalletController {
 	
 	@Autowired
-	UserService usSer;
+	private UserService usSer;
 	
 	@Autowired 
-	WalletService wallSer;
+	private WalletService wallSer;
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
    	public ResponseEntity<WalletDTO> add(@RequestBody WalletDTO walletDTO) throws IOException, URISyntaxException{
     	User us = usSer.getUserByEmail(walletDTO.getUserEmail());
-    	Wallet w = wallSer.add(walletDTO);
-    	w.setUser(us);
-    	wallSer.update(w);
-    	us.setWallet(w);
-    	usSer.update(us);
+    	Wallet wallet = wallSer.findByUserEmail(us.getEmail());
+    	wallet.setBalance(wallet.getBalance()+Double.parseDouble(walletDTO.getBalance()));
+    	wallSer.update(wallet);
     	return new ResponseEntity<WalletDTO>(walletDTO, HttpStatus.OK);
        }
 

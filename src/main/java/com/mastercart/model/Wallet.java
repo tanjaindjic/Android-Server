@@ -25,7 +25,8 @@ public class Wallet {
         this.history = history;
         this.user = user;
     }
-
+    
+  
     public Wallet() { 
     	
     	this.history = new ArrayList<Payment>();

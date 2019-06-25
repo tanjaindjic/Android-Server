@@ -13,14 +13,9 @@ public class WalletService {
 	@Autowired
 	WalletRepository wallRep;
 	
-   	public Wallet add(WalletDTO walletDTO){
-
-    	Wallet w = new Wallet();
-    	w.setBalance(Double.parseDouble(walletDTO.getBalance()));
-    	wallRep.save(w);
-    	return w;
+   	public Wallet findByUserEmail(String email) {
+   		return wallRep.findByUserEmail(email);
    	}
-   	
    	
    	public void update(Wallet wallet) {
 		wallRep.save(wallet);		

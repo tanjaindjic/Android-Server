@@ -203,12 +203,22 @@ public class StartData {
         ArrayList<Product> favMika = new ArrayList<Product>();
         favMika.add(p1);
         favMika.add(p2);
-        User buyer1 = new User( "mika@gmail.com", "mika", "Mika", "Mikic", "Mike Antica 26", "063/343-443", Role.KUPAC, new byte[0], favMika, w1, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
-        w1.setUser(buyer1);
+        User buyer1 = new User( "mika@gmail.com", "mika", "Mika", "Mikic", "Mike Antica 26", "063/343-443", Role.KUPAC, new byte[0], favMika, null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        Wallet wallet = new Wallet();
+		wallet.setBalance(0);
+		walletRepository.save(wallet);
+		buyer1.setWallet(wallet);
         buyer1 = userRepository.save(buyer1);
-        w1 = walletRepository.save(w1);
+        wallet.setUser(buyer1);
+        walletRepository.save(wallet);
         User buyer2 = new User( "pera@gmail.com", "pera", "Pera", "Peric", "Sonje Marinkovic 11", "064/767-696", Role.KUPAC, new byte[0], new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
-        buyer2 = userRepository.save(buyer2);
+        Wallet wallet2 = new Wallet();
+        wallet2.setBalance(0);
+		walletRepository.save(wallet2);
+		buyer2.setWallet(wallet2);
+		buyer2 = userRepository.save(buyer2);
+		wallet2.setUser(buyer2);
+		walletRepository.save(wallet2);
 
 
         List orders = new ArrayList<>();
