@@ -20,7 +20,9 @@ public class User {
     private String address;
     private String phone;
     private Role role;
-    private String imageResource;
+    @Lob
+    @Column(columnDefinition="BLOB")
+    private byte[] imageResource;
     @OneToMany
     private List<Product> favorites;
     @OneToOne
@@ -36,7 +38,7 @@ public class User {
     public User() {
     }
 
-    public User( String email, String password, String firstName, String lastName, String address, String phone, Role role, String imageResource, List<Product> favorites, Wallet wallet, List<CartItem> cartItems, List<Order> orders, List<Conversation>conversations) {
+    public User(String email, String password, String firstName, String lastName, String address, String phone, Role role, byte[] imageResource, List<Product> favorites, Wallet wallet, List<CartItem> cartItems, List<Order> orders, List<Conversation>conversations) {
     	this.email = email;
         this.password = password;
         this.firstName = firstName;
@@ -114,11 +116,11 @@ public class User {
         this.role = role;
     }
 
-    public String getImageResource() {
+    public byte[] getImageResource() {
         return imageResource;
     }
 
-    public void setImageResource(String imageResource) {
+    public void setImageResource(byte[] imageResource) {
         this.imageResource = imageResource;
     }
 

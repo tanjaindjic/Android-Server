@@ -163,10 +163,10 @@ public class StartData {
         w1 = walletRepository.save(w1);
         py = paymentRepository.save(py);
 
-        User admin = new User( "admin@gmail.com", "admin", "Admin", "Adminic", "Kosovska 53", "060/123-123", Role.ADMIN, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        User admin = new User( "admin@gmail.com", "admin", "Admin", "Adminic", "Kosovska 53", "060/123-123", Role.ADMIN, new byte[0], new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         admin = userRepository.save(admin);
 
-        User seller1 = new User( "seller1@gmail.com", "seller1", "Sale", "Seller", "Puskinova 13", "061/234-234", Role.PRODAVAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        User seller1 = new User( "seller1@gmail.com", "seller1", "Sale", "Seller", "Puskinova 13", "061/234-234", Role.PRODAVAC, new byte[0], new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         seller1 = userRepository.save(seller1);
         s1.setSeller(seller1);
 
@@ -178,24 +178,24 @@ public class StartData {
         s1.getProducts().add(p5);
         shopRepository.save(s1);
 
-        User seller2 = new User("seller2@gmail.com", "seller2", "Proda", "Prodavac", "Strazilovska 13", "062/345-345", Role.PRODAVAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        User seller2 = new User("seller2@gmail.com", "seller2", "Proda", "Prodavac", "Strazilovska 13", "062/345-345", Role.PRODAVAC, new byte[0], new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         seller2 = userRepository.save(seller2);
         s2.setSeller(seller2);
         s2.getProducts().add(p6);
         s2.getProducts().add(p7);
         shopRepository.save(s2);
 
-        User seller3 = new User("seller3@gmail.com", "seller3", "Proda", "Prodavac", "Strazilovska 13", "062/345-345", Role.PRODAVAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        User seller3 = new User("seller3@gmail.com", "seller3", "Proda", "Prodavac", "Strazilovska 13", "062/345-345", Role.PRODAVAC, new byte[0], new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         seller3 = userRepository.save(seller3);
         s3.setSeller(seller3);
         shopRepository.save(s3);
 
-        User seller4 = new User("seller4@gmail.com", "seller4", "Proda", "Prodavac", "Strazilovska 13", "062/345-345", Role.PRODAVAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        User seller4 = new User("seller4@gmail.com", "seller4", "Proda", "Prodavac", "Strazilovska 13", "062/345-345", Role.PRODAVAC, new byte[0], new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         seller4 = userRepository.save(seller4);
         s4.setSeller(seller4);
         shopRepository.save(s4);
 
-        User seller5 = new User("seller5@gmail.com", "seller5", "Proda", "Prodavac", "Strazilovska 13", "062/345-345", Role.PRODAVAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        User seller5 = new User("seller5@gmail.com", "seller5", "Proda", "Prodavac", "Strazilovska 13", "062/345-345", Role.PRODAVAC, new byte[0], new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         seller5 = userRepository.save(seller5);
         s5.setSeller(seller5);
         shopRepository.save(s5);
@@ -203,11 +203,11 @@ public class StartData {
         ArrayList<Product> favMika = new ArrayList<Product>();
         favMika.add(p1);
         favMika.add(p2);
-        User buyer1 = new User( "mika@gmail.com", "mika", "Mika", "Mikic", "Mike Antica 26", "063/343-443", Role.KUPAC, "", favMika, w1, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        User buyer1 = new User( "mika@gmail.com", "mika", "Mika", "Mikic", "Mike Antica 26", "063/343-443", Role.KUPAC, new byte[0], favMika, w1, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         w1.setUser(buyer1);
         buyer1 = userRepository.save(buyer1);
         w1 = walletRepository.save(w1);
-        User buyer2 = new User( "pera@gmail.com", "pera", "Pera", "Peric", "Sonje Marinkovic 11", "064/767-696", Role.KUPAC, "", new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
+        User buyer2 = new User( "pera@gmail.com", "pera", "Pera", "Peric", "Sonje Marinkovic 11", "064/767-696", Role.KUPAC, new byte[0], new ArrayList<Product>(), null, new ArrayList<CartItem>(), new ArrayList<Order>(), new ArrayList<Conversation>());
         buyer2 = userRepository.save(buyer2);
 
 

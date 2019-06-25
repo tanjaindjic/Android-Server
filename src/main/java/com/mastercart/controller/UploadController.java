@@ -1,5 +1,10 @@
 package com.mastercart.controller;
 
+import com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException;
+import com.sun.org.apache.xml.internal.security.utils.Base64;
+import org.springframework.util.*;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,10 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mastercart.model.User;
-import com.mastercart.model.enums.Role;
 import com.mastercart.security.TokenUtils;
 import com.mastercart.service.UploadSevice;
 import com.mastercart.service.UserService;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
+import java.io.IOException;
 
 @RestController
 public class UploadController {
@@ -28,8 +35,8 @@ public class UploadController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value = "upload", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
-    public ResponseEntity<String> uploadImage(@RequestHeader(value="Authorization") String Authorization, @RequestBody MultipartFile file){
+	@RequestMapping(value = "upload", method = RequestMethod.POST, consumes = MediaType.TEXT_PLAIN_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> uploadImage(@RequestHeader(value="Authorization") String Authorization, @RequestBody String file) throws IOException, Base64DecodingException {
     	String email = tokenUtils.getUsernameFromToken(Authorization);
 	    if(email==null || email.isEmpty()) {
 	    	System.out.println("Pokusaj neautorizovanog dodavanja slike");	    	
@@ -39,9 +46,11 @@ public class UploadController {
 	    if(user == null) {
 	    	return new ResponseEntity<>(null, HttpStatus.OK);
 	    }
-	    String path = uploadSevice.uploadImage(file);
-	    user.setImageResource(path);
-	    System.out.println(path);
+
+		/*FileItem fileItem = new DiskFileItem(user.getEmail(), "image/jpeg",true, user.getEmail(), 100000000, new java.io.File(System.getProperty("java.io.tmpdir")));
+	    fileItem.getOutputStream();
+		MultipartFile multipartFile = new CommonsMultipartFile(fileItem);*/
+	    user.setImageResource( Base64.decode(new String(file).getBytes("UTF-8")));
 	    userService.update(user);
     	return new ResponseEntity<String>("done", HttpStatus.OK);
     }
