@@ -35,11 +35,12 @@ public class User {
     @ManyToMany
     @JsonBackReference
     private List<Conversation> conversations;
+    private boolean notifications;
 
     public User() {
     }
 
-    public User(String email, String password, String firstName, String lastName, String address, String phone, Role role, byte[] imageResource, List<Product> favorites, Wallet wallet, List<CartItem> cartItems, List<Order> orders, List<Conversation>conversations) {
+    public User(String email, String password, String firstName, String lastName, String address, String phone, Role role, byte[] imageResource, List<Product> favorites, Wallet wallet, List<CartItem> cartItems, List<Order> orders, List<Conversation>conversations, boolean notifications) {
     	this.email = email;
         this.password = password;
         this.firstName = firstName;
@@ -53,6 +54,7 @@ public class User {
         this.cartItems = cartItems;
         this.orders = orders;
         this.conversations = conversations;
+        this.notifications = notifications;
     }
 
     public Long getId() {  return id;  }
@@ -164,4 +166,13 @@ public class User {
     public void setConversations(List<Conversation> conversations) {
         this.conversations = conversations;
     }
+
+	public boolean isNotifications() {
+		return notifications;
+	}
+
+	public void setNotifications(boolean notifications) {
+		this.notifications = notifications;
+	}
+    
 }
