@@ -1,9 +1,12 @@
 package com.mastercart.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Conversation {
@@ -11,33 +14,56 @@ public class Conversation {
     @GeneratedValue
     private Long id;
     @ManyToOne
-    @JsonBackReference
-    Shop reciever;
+    Shop shop;
     @ManyToOne
-    @JsonBackReference
     User initiator;
+    @ManyToOne
+    User receiver;
     @OneToMany
     List<Message> messages;
 
-    public Conversation(int id, Shop receiver, User initiator, List<Message> messages) {
-        this.reciever = receiver;
-        this.initiator = initiator;
-        this.messages = messages;
-    }
-
     public Conversation() { }
+   
+    public Conversation(Shop shop, User initiator, User receiver, List<Message> messages) {
+		super();
+		this.shop = shop;
+		this.initiator = initiator;
+		this.receiver = receiver;
+		this.messages = messages;
+	}
 
-    public Long getId() {
+
+	public Shop getShop() {
+		return shop;
+	}
+
+	public void setShop(Shop shop) {
+		this.shop = shop;
+	}
+
+
+	public User getReceiver() {
+		return receiver;
+	}
+
+
+	public void setReceiver(User receiver) {
+		this.receiver = receiver;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
+	public Long getId() {
         return id;
     }
 
-    public Shop getReciever() {
-        return reciever;
-    }
-
-    public void setReciever(Shop reciever) {
-        this.reciever = reciever;
-    }
+    
 
     public User getInitiator() {
         return initiator;

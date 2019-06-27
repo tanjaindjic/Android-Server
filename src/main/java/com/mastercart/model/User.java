@@ -32,7 +32,8 @@ public class User {
     @OneToMany
     @JsonBackReference
     private List<Order> orders;
-    @OneToMany
+    @ManyToMany
+    @JsonBackReference
     private List<Conversation> conversations;
 
     public User() {
