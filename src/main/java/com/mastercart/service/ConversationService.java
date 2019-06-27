@@ -51,4 +51,8 @@ public class ConversationService {
     	userService.update(seller);
     	return con;
 	}
+	
+	public Conversation findById(String id) {
+		return conversationRepository.findById(Long.valueOf(id)).get();
+	}
 }

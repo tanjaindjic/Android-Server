@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mastercart.model.Conversation;
+import com.mastercart.model.Message;
 import com.mastercart.model.User;
 import com.mastercart.model.dto.ConversationDTO;
 import com.mastercart.security.TokenUtils;
@@ -47,4 +49,12 @@ public class ConversationController {
 	    return new ResponseEntity<List<Conversation>>(user.getConversations(), HttpStatus.OK);
 	  
     }
+	
+	
+	@RequestMapping(value = "/getMessage/{conversationId}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Message>> getMessages(@PathVariable String conversationId){
+		Conversation con = conversationService.findById(conversationId);
+    	return new ResponseEntity<List<Message>>(con.getMessages(), HttpStatus.OK);
+    }
+	
 }
