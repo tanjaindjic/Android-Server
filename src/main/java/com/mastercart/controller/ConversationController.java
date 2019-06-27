@@ -1,5 +1,6 @@
 package com.mastercart.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,11 @@ import com.mastercart.model.Conversation;
 import com.mastercart.model.Message;
 import com.mastercart.model.User;
 import com.mastercart.model.dto.ConversationDTO;
+import com.mastercart.model.dto.MessageDTO;
+import com.mastercart.model.enums.Role;
 import com.mastercart.security.TokenUtils;
 import com.mastercart.service.ConversationService;
+import com.mastercart.service.MessageService;
 import com.mastercart.service.UserService;
 
 @RestController
@@ -31,6 +35,8 @@ public class ConversationController {
 	private ConversationService conversationService;
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private MessageService messageService;
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ConversationDTO> addConversation(@RequestBody ConversationDTO conversationDTO){
@@ -57,4 +63,24 @@ public class ConversationController {
     	return new ResponseEntity<List<Message>>(con.getMessages(), HttpStatus.OK);
     }
 	
+	
+	@RequestMapping(value = "/message", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Message> sendMessage(@RequestBody MessageDTO messageDTO){
+		Conversation con = conversationService.findById(messageDTO.getConversationId());
+		Message m = new Message();
+		m.setMessage(messageDTO.getContent());
+		m.setTime(new Date());
+		User us = userService.getUserByEmail(messageDTO.getInitiator());
+		if(us.getRole().equals(Role.KUPAC)) {
+			m.setUserSender(us);
+			m.setShopSender(con.getShop());
+		}else if(us.getRole().equals(Role.PRODAVAC)) {
+			m.setShopSender(con.getShop());
+			m.setUserSender(con.getInitiator());
+		}
+		messageService.save(m);
+		con.getMessages().add(m);
+		conversationService.save(con);
+		return new ResponseEntity<Message>(m, HttpStatus.OK);
+    }
 }

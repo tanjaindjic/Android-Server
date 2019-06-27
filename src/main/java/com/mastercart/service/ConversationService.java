@@ -25,6 +25,10 @@ public class ConversationService {
 	@Autowired
 	private ShopSevice shopService;
 	
+	public void save(Conversation c) {
+		conversationRepository.save(c);
+	}
+	
 	public Conversation add(ConversationDTO conversationDTO) {
 		User user = userService.getUserByEmail(conversationDTO.getUserEmail());
     	Shop shop = shopService.getShopById(Long.parseLong(conversationDTO.getShopId()));
