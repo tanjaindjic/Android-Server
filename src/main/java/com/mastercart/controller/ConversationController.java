@@ -1,28 +1,50 @@
 package com.mastercart.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mastercart.model.Conversation;
+import com.mastercart.model.User;
 import com.mastercart.model.dto.ConversationDTO;
+import com.mastercart.security.TokenUtils;
 import com.mastercart.service.ConversationService;
+import com.mastercart.service.UserService;
 
 @RestController
 @RequestMapping(value = "/conversation")
 public class ConversationController {
 	
 	@Autowired
+	private TokenUtils tokenUtils;
+	@Autowired
 	private ConversationService conversationService;
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ConversationDTO> addConversation(@RequestBody ConversationDTO conversationDTO){
 		Conversation con = conversationService.add(conversationDTO);
     	return new ResponseEntity<ConversationDTO>(conversationDTO, HttpStatus.OK);
+    }
+	
+	@RequestMapping(value = "/getConversations", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Conversation>> getConversations(@RequestHeader(value="Authorization") String Authorization){
+		String email = tokenUtils.getUsernameFromToken(Authorization);
+	    if(email==null || email.isEmpty()) {
+	    	System.out.println("Pokusaj neautorizovanog update-ovanja profila");	    	
+	    	return new ResponseEntity<>(null, HttpStatus.OK);
+	    }
+	    User user = userService.getUserByEmail(email);
+	    return new ResponseEntity<List<Conversation>>(user.getConversations(), HttpStatus.OK);
+	  
     }
 }
