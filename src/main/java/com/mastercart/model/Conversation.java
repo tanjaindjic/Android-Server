@@ -1,5 +1,6 @@
 package com.mastercart.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -22,7 +23,9 @@ public class Conversation {
     @OneToMany
     List<Message> messages;
 
-    public Conversation() { }
+    public Conversation() {
+    	this.messages = new ArrayList<Message>();
+    }
    
     public Conversation(Shop shop, User initiator, User receiver, List<Message> messages) {
 		super();
