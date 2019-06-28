@@ -136,6 +136,8 @@ public class UserController {
 	    }
 	    User user = userService.getUserByEmail(email);
    // 	System.out.println("pretraga favorite proizvoda");
+	    if(user==null)
+	    	return new ResponseEntity<>(false, HttpStatus.OK);	    	
     	Boolean retVal = false;
     	retVal = userService.findFavsIds(user, id);
     	return new ResponseEntity<Boolean>(retVal, HttpStatus.OK);
