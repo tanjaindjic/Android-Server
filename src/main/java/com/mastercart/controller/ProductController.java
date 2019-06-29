@@ -60,6 +60,7 @@ public class ProductController {
    	public ResponseEntity<ProductDTO> add(@RequestBody ProductDTO product) throws IOException, URISyntaxException{
     	Shop shop = shopService.getShopById(Long.parseLong(product.getIdShop()));
     	Product pr = productSevice.addProduct(product);
+    	pr.setShop(shop);
     	Category cat = categoryService.getCategoryById(Long.parseLong(product.getIdCategory()));
     	pr.setCategory(cat);
     	productSevice.update(pr);
