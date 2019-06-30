@@ -76,7 +76,6 @@ public class ConversationController {
 			m.setShopSender(con.getShop());
 		}else if(us.getRole().equals(Role.PRODAVAC)) {
 			m.setShopSender(con.getShop());
-			m.setUserSender(con.getInitiator());
 		}
 		messageService.save(m);
 		con.getMessages().add(m);
