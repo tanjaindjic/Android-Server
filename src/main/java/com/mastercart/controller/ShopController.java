@@ -62,8 +62,10 @@ public class ShopController {
     	Shop s = shopService.addShop(shop);
        	User us = new User();
        	us.setEmail(shop.getSellerEmail());
-       	us.setPassword("111");
+       	us.setPassword(shop.getSellerEmail());
        	us.setRole(Role.PRODAVAC);
+       	us.setFirstName(shop.getSellerEmail());
+       	us.setImageResource(new byte[0]);
        	userService.update(us);
        	s.setSeller(us);
        	shopService.save(s);

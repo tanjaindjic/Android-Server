@@ -1,8 +1,16 @@
 package com.mastercart.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mastercart.model.enums.Role;
@@ -38,6 +46,7 @@ public class User {
     private boolean notifications;
 
     public User() {
+    	this.conversations = new ArrayList<Conversation>();
     }
 
     public User(String email, String password, String firstName, String lastName, String address, String phone, Role role, byte[] imageResource, List<Product> favorites, Wallet wallet, List<CartItem> cartItems, List<Order> orders, List<Conversation>conversations, boolean notifications) {
