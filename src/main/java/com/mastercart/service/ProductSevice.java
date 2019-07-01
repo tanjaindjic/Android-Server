@@ -55,10 +55,9 @@ public class ProductSevice {
     		newProduct.setSize(product.getSize());
     	if(product.getOnStock()!="")
     		newProduct.setOnStock(Integer.parseInt(product.getOnStock()));
-    	
-    	byte[] data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/charger.jpg").toURI()));
-        newProduct.setImageResource(data);
-        
+    	/*byte[] data = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("static/assets/images/charger.jpg").toURI()));
+        newProduct.setImageResource(data);*/
+
     	productRepository.save(newProduct);
     	return newProduct;
     }

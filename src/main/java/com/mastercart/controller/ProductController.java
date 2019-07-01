@@ -6,6 +6,9 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mastercart.model.*;
+import com.mastercart.repository.NotificationRepository;
+import com.mastercart.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,9 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mastercart.model.Category;
-import com.mastercart.model.Product;
-import com.mastercart.model.Shop;
 import com.mastercart.model.dto.ProductDTO;
 import com.mastercart.service.CategorySevice;
 import com.mastercart.service.ProductSevice;
@@ -37,6 +37,10 @@ public class ProductController {
     
     @Autowired
     private CategorySevice categoryService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private NotificationRepository notificationRepository;
     
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public Product[] getAllProducts(){
@@ -81,12 +85,26 @@ public class ProductController {
     
     @RequestMapping(value = "/edit", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
    	public ResponseEntity<ProductDTO> edit(@RequestBody ProductDTO product) throws IOException, URISyntaxException{
-    	Product editProduct = productSevice.editProduct(product);
+    	Product stari = productSevice.getProductById(Long.parseLong(product.getId()));
+        double staraCena = stari.getPrice();
+        int stariPopust = stari.getDiscount();
+        Product editProduct = productSevice.editProduct(product);
     	Category cat = categoryService.getCategoryById(Long.parseLong(product.getIdCategory()));
     	editProduct.setCategory(cat);
     	productSevice.update(editProduct);
+    	if(editProduct.getPrice()<staraCena || editProduct.getDiscount()>stariPopust)
+            makeNotifications(editProduct);
    		return new ResponseEntity<ProductDTO>(product, HttpStatus.OK);
        }
+
+    private void makeNotifications(Product editProduct) {
+        for(User u : userService.getAllForWallet()){
+            if(userService.findFavsIds(u, editProduct.getId())) {
+                Notification notification = new Notification(u.getId(), editProduct);
+                notificationRepository.save(notification);
+            }
+        }
+    }
 
 
 }
